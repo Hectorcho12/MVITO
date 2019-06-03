@@ -1,0 +1,321 @@
+﻿<Page
+    x:Class="MVITO.Views.Page6"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MVITO.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Pivot Title="Administrador de gastos y costos" Margin="1">
+            <PivotItem Header="Gastos">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Image Source="../Icons/Pagos.png" MaxWidth="500" VerticalAlignment="Top" Margin="0,105,31,0" HorizontalAlignment="Right"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel Height="auto" VerticalAlignment="Top" Margin="57,38,0,0" HorizontalAlignment="Left" Width="360">
+                            <TextBlock Name="aviso" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center"></TextBlock>
+                            <GridViewHeaderItem Content="Registro de Pagos y Gastos" VerticalAlignment="Top" Margin="0,10"/>
+                            <TextBlock TextWrapping="Wrap" Margin="10" Text="Ingrese Gastos de Operacion como ser el pago de servicios publicos o cualquier otro gasto que haya tenido su empresa " FocusVisualPrimaryBrush="Black"/>
+                            <ComboBox Name="Gasto" Margin="10" Width="339" Header="Gasto" PlaceholderText="Seleccion el tipo de gasto a ingresar" >
+                                <x:String>Servicios Publicos</x:String>
+                                <x:String>Mantenimiento</x:String>
+                                <x:String>Alquiler</x:String>
+                                <x:String>Otros</x:String>
+                            </ComboBox>
+                            <TextBox Name="Descripciong" Margin="10" Header="Descripcion del Gasto" PlaceholderText="Describa su gasto" PreviewKeyDown="Descripciong_PreviewKeyDown"/>
+                            <TextBox Name="Totalg" Margin="10" Header="Total" PlaceholderText="Ingrese el total pagado" PreviewKeyDown="Totalg_PreviewKeyDown"/>
+                            <Button Click="Agregargasto" Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem Header="Compras">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin="0,0,0.4,70">
+                        <Image Source="../Icons/Compras.png" Margin="0,69,40,0" MaxWidth="500" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                    </Grid>
+
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0*"/>
+                        </Grid.RowDefinitions>
+
+                        <ScrollViewer>
+                            <StackPanel Width="361" Height="679" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,10,0,0" >
+                                <TextBlock Visibility="Collapsed"  Name="avisoc" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center" ></TextBlock>
+                                <GridViewHeaderItem Content="Registro de Compras" VerticalAlignment="Top" Margin="0,10"/>
+                                <TextBlock TextWrapping="Wrap" Margin="10, 1" Text="Ingrese toda compra de productos realizados como materia prima, material de aseo, artuclos del negocio o productos para ventas"/>
+                                <ComboBox x:Name="Compras" Header="Compras"  Margin="10,3" HorizontalAlignment="Stretch" PlaceholderText="Seleccione " SelectionChanged="Compras_SelectionChanged">
+                                    <ComboBoxItem x:Name="op1" Content="Insumos(Materias Primas)"/>
+                                    <ComboBoxItem x:Name="op2" Content="Materiales/Equipo de trabajo"/>
+                                    <ComboBoxItem x:Name="op3" Content="Moviliario/Material de oficina"/>
+                                    <ComboBoxItem x:Name="op4" Content="Otros(Especifique en descripcion)"/>
+
+                                </ComboBox>
+                                <TextBox Name="Descripcionc"  Margin="10,3" Header="Descripcion de la Compra" PlaceholderText="Describa los articulos en su compra" PreviewKeyDown="Descripcionc_PreviewKeyDown"/>
+                                <TextBox Name="cantidad"  Margin="10,3" Header="Cantidad" PlaceholderText="Ingrese la cantidad de articulos comprados" Width="339" TextChanged="Cantidad_TextChanged" PreviewKeyDown="Cantidad_PreviewKeyDown"/>
+                                <StackPanel Name="splitpanel" Margin="10" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="360"   >
+                                    <ToggleSwitch Name="interruptor" OnContent="Calcular total" OffContent="Calcular total" Margin="0,1" Toggled="Interruptor_Toggled"></ToggleSwitch>
+                                    <StackPanel Name="panelcalcular" Margin="0,18" Orientation="Horizontal" Visibility="Collapsed">
+                                        <TextBox Width="150" Name="precio" Margin="1"  Header="precio por Unidad" HorizontalAlignment="Left" TextChanged="Precio_TextChanged" PreviewKeyDown="Precio_PreviewKeyDown" />
+                                        <Button Margin="23,20,0,0" x:Name="calcular" Content="Calcular" Background="#334DC1FD" IsEnabled="False" Click="Calcular_Click" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBox x:Name="Totalc"  Margin="10,3" Header="Total" PlaceholderText="Ingrese el total pagado" PreviewKeyDown="Totalc_PreviewKeyDown"/>
+                                <ComboBox x:Name="Selection" Header="Impuestos"   Margin="10,3" HorizontalAlignment="Stretch" PlaceholderText="Seleccione los impuestos de su compra">
+                                    <ComboBoxItem x:Name="ISV" Content="15% ISV"/>
+                                    <ComboBoxItem x:Name="NoISV" Content="Compra Excenta"/>
+                                </ComboBox>
+                                <Button Content="Guardar" Background="CornflowerBlue"  Margin="10,3" Height="39" HorizontalAlignment="Stretch" Click="Agregarcompra" Width="340"/>
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+
+
+                    </Grid>
+
+                </Grid>
+
+            </PivotItem>
+            <PivotItem Header="Perdidas">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Image Source="../Icons/losts.png" Margin="0,69,40,0" MaxWidth="500" VerticalAlignment="Top" HorizontalAlignment="Right" >
+
+                        </Image>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel Width="360" Height="443" HorizontalAlignment="Left" Margin="33,63,0,0"   VerticalAlignment="Top">
+                            <TextBlock   Name="avisop" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center" ></TextBlock>
+                            <GridViewHeaderItem Content="Registro de Perdidas" VerticalAlignment="Top" Margin="0,10"/>
+                            <TextBlock TextWrapping="Wrap" Margin="10" Text="Ingrese Productos devueltos, equipo descompuesto o ingretientes expirados"/>
+
+                            <ComboBox Name="Perdidas" Margin="10" Width="339" Header="Perdida" PlaceholderText="Seleccion el tipo de perdida" >
+                                <x:String>Devolucion</x:String>
+                                <x:String>Equipo dañado</x:String>
+                                <x:String>Producto perdido/en mal estado</x:String>
+                                <x:String>Otros</x:String>
+                            </ComboBox>
+                            <TextBox Name="Descripcionp" Margin="10" Header="Descripcion de la Perdida" PlaceholderText="Describa detalladamente su perdida" PreviewKeyDown="Descripcionp_PreviewKeyDown"/>
+                            <TextBox Name="Totalp" Margin="10" Header="Total" PlaceholderText="Ingrese el monto de su perdida" PreviewKeyDown="Totalp_PreviewKeyDown"/>
+                            <Button Click="Agregarperdida" Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+
+            </PivotItem>
+
+            <PivotItem Header="Repartidores">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Image Source="../Icons/Repartidor.png" Margin="30" MaxWidth="500" MaxHeight="500" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel Width="360" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,36,0,0">
+                            <GridViewHeaderItem Content="Registro de Tiempos" VerticalAlignment="Top" Margin="0,10"/>
+                            <TextBlock TextWrapping="Wrap" Margin="10" Text="Tome el registro de salida y regreso de cada repartidor para estimar el tiempo de recorrido"/>
+                            <ComboBox x:Name="Movimiento" Margin="10" HorizontalAlignment="Stretch" Header="Movimiento" PlaceholderText="Seleccione si el Repartidor Sale o Regresa" SelectionChanged="MovimientoSelection">
+                                <x:String>Repartidor Saliendo</x:String>
+                                <x:String>Repartidor Regresa</x:String>
+                            </ComboBox>
+                            <ComboBox x:Name="Repartidor" SelectionChanged="RepartidorSelection" Margin="10" HorizontalAlignment="Stretch" Header="Repartidor" PlaceholderText="Seleccione Repartidor">
+                                <x:String>Repartidor 1</x:String>
+                                <x:String>Repartidor 2</x:String>
+                                <x:String>Repartidor 3</x:String>
+                                <x:String>Repartidor 4</x:String>
+                            </ComboBox>
+                            <ComboBox x:Name="Cantidad" SelectionChanged="CantidadSelection" Margin="10" HorizontalAlignment="Stretch" Header="Tamaño de Envio" PlaceholderText="Seleccione la cantidad de pizzas que lleva">
+                                <x:String>1 Pizza</x:String>
+                                <x:String>2 Pizza</x:String>
+                                <x:String>3 Pizza</x:String>
+                                <x:String>4 Pizza</x:String>
+                                <x:String>5 Pizza</x:String>
+                                <x:String>6 Pizza</x:String>
+                                <x:String>7 Pizza</x:String>
+                                <x:String>8 Pizza</x:String>
+                                <x:String>9 Pizza</x:String>
+                                <x:String>10 Pizza</x:String>
+                            </ComboBox>
+                            <TextBox Name="Totalrepartidores" Margin="10" Header="Dinero" PlaceholderText="Ingrese el total del pedido que lleva"/>
+                            <Button Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch" Click="AgregarRepartidor"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+
+            </PivotItem>
+
+            <PivotItem Header="Empleados">
+
+
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush
+                    ImageSource="/Icons/empleados.png" Stretch="None"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+
+
+                    <Grid Grid.Column="0">
+
+                        <ScrollViewer>
+                            <StackPanel Width="360" Height="570" HorizontalAlignment="Center" Margin="0,41,0,0" Background="#CCF4F3F3" >
+
+                                <GridViewHeaderItem Content="Registro de Empleados" VerticalAlignment="Top" Margin="0,10"/>
+                                <TextBlock TextWrapping="Wrap" Margin="10" Text="Registro a cada uno de sus empleados para llevar un control total de su planilla. Esto incluye deducciones a empleados, pagos de horas extras e ingresos y egresos extras"/>
+                                <TextBlock TextWrapping="Wrap" Margin="10" Text="Datos Generales" FontSize="15" HorizontalAlignment="Center"/>
+
+                                <TextBox Name="IDempleado" Margin="10,0" Header="Identificacion" PlaceholderText="Ingrese numero de identidad del empleado"/>
+                                <TextBox Name="nomempleado" Margin="10,0" Header="Nombre Completo" PlaceholderText="Ingrese el nombre del empleado"/>
+                                <DatePicker Name="nacempleado" Header="Fecha de nacimiento" Margin="10,0" Width="337"></DatePicker>
+                                <ComboBox Name="genempleado" Margin="10,0" Header="Genero" Width="337" PlaceholderText="Escoja el genero del empleado">
+                                    <x:String>Masculino</x:String>
+                                    <x:String>Femenino</x:String>
+                                </ComboBox>
+                                <DatePicker Name="iniempleado" Header="Fecha de Inicio" Margin="10,0" Width="337"></DatePicker>
+                                <TextBox Name="domempleado" Margin="10,0" Header="Domicilio del empleado" PlaceholderText="Ingrese el domicilio del empleado"/>
+
+
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+
+
+
+                    <Grid Grid.Column="1">
+
+
+                        <ScrollViewer>
+                        <StackPanel Width="360" Height="560" HorizontalAlignment="Left" Margin="112,54,0,10" Background="#CCF4F3F3">
+                            <TextBlock TextWrapping="Wrap" Margin="10" Text="Datos del puesto" FontSize="15" HorizontalAlignment="Center"/>
+
+                            <TextBox Name="Salarioempleado" Margin="10,3" Header="Salario" PlaceholderText="Ingrese el salario de su empleado"/>
+
+                           
+
+
+
+                            <TimePicker  Name="cbxentrada" Margin="10,3" ClockIdentifier="24HourClock" Header="Hora de entrada" />
+                            <TimePicker Name="Cbxsalida" Margin="10,3"  ClockIdentifier="24HourClock" Header="Hora de Salida" />
+
+
+                            <TextBox Name="puestoempleado" Margin="10,3" Header="Puesto" PlaceholderText="Ingrese el puesto de trabajo del empleado"/>
+                            <TextBox Name="comentarioempleado" Margin="10,3" Header="Comentarios" PlaceholderText="Añada convenios o acuerdos con el empleado"/>
+                            
+                             <DatePicker  Name="durampleado" Header="Duracion del contrato" Margin="10,0" ></DatePicker>
+                            <TextBlock TextWrapping="Wrap" Margin="10,0" Text="Marque la casilla si la duracion del contrato sera indefinida" FontSize="15"></TextBlock>
+                            <CheckBox Name="Indefinido" Margin="10,0" Content="Contrato Indefinido" Foreground="Aqua"></CheckBox>
+                                
+                            
+                            <Button x:Name="IngresoEmpleado" Margin="10,20"  Height="40" Width="338" Content="Guardar" HorizontalAlignment="Center" Background="CornflowerBlue" Click="IngresoEmpleado_Click" />
+
+                        </StackPanel>
+                        </ScrollViewer>
+
+                    </Grid>
+
+                </Grid>
+
+
+
+            </PivotItem>
+
+            <PivotItem Name="emple" Header="Extras Empleados">
+
+
+
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush
+                    ImageSource="/Icons/monedas.png" Stretch="Uniform" Opacity="0.3">
+                            <ImageBrush.Transform>
+                                <CompositeTransform TranslateY="150"/>
+                            </ImageBrush.Transform>
+                        </ImageBrush>
+                    </Grid.Background>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Grid Grid.Column="0">
+
+                        <ListView x:Name="listaempleados" Margin="10" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <StackPanel Orientation="Horizontal" Margin="50">
+                                            <PersonPicture Height="60" Width="60" DisplayName="{Binding NmEmp}"></PersonPicture>
+                                            <StackPanel Margin="10" Orientation="Vertical">
+                                                <TextBlock Text="{Binding IDemp}"></TextBlock>
+                                                <TextBlock Text="{Binding NmEmp}"></TextBlock>
+                                                <TextBlock Text="{Binding PstEmp}"></TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            
+
+                        </ListView>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="617*"/>
+                        </Grid.RowDefinitions>
+
+
+
+                    </Grid>
+                </Grid>
+
+
+
+            </PivotItem>
+
+
+        </Pivot>
+    </Grid>
+</Page>

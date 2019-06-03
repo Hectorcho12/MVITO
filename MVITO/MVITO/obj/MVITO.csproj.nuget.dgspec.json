@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\hecto\\Documents\\Projects\\MVITO\\MVITO\\MVITO.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\hecto\\Documents\\Projects\\MVITO\\MVITO\\MVITO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hecto\\Documents\\Projects\\MVITO\\MVITO\\MVITO.csproj",
+        "projectName": "MVITO",
+        "projectPath": "C:\\Users\\hecto\\Documents\\Projects\\MVITO\\MVITO\\MVITO.csproj",
+        "packagesPath": "C:\\Users\\hecto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hecto\\Documents\\Projects\\MVITO\\MVITO\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hecto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "uap10.0.17134"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "uap10.0.17134": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "uap10.0.17134": {
+          "dependencies": {
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
+              "target": "Package",
+              "version": "[6.2.8, )"
+            },
+            "Syncfusion.XlsIO.UWP": {
+              "target": "Package",
+              "version": "[17.1.0.43, )"
+            },
+            "WinUX.UWP": {
+              "target": "Package",
+              "version": "[2.4.17005.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

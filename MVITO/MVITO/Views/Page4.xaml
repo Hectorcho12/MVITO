@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="Monitoreo.Views.Page4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Monitoreo.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Icons/FondoDinero.png" Opacity="0.3"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Grid Grid.Column="0">
+            <Image Source="../Icons/Repartidor.png" MaxWidth="500" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="1">
+
+            <StackPanel Margin="0,100" Width="360" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#99FFFFFF">
+                <GridViewHeaderItem Content="Registro de Tiempos" VerticalAlignment="Top" Margin="0,10"/>
+                <TextBlock TextWrapping="Wrap" Margin="10" Text="Tome el registro de salida y regreso de cada repartidor para estimar el tiempo de recorrido"/>
+                <ComboBox x:Name="Movimiento" Margin="10" HorizontalAlignment="Stretch" Header="Movimiento" PlaceholderText="Seleccione si el Repartidor Sale o Regresa" SelectionChanged="MovimientoSelection">
+                    <x:String>Repartidor Saliendo</x:String>
+                    <x:String>Repartidor Regresa</x:String>
+                </ComboBox>
+                <ComboBox x:Name="Repartidor" SelectionChanged="RepartidorSelection" Margin="10" HorizontalAlignment="Stretch" Header="Repartidor" PlaceholderText="Seleccione Repartidor">
+                    <x:String>Repartidor 1</x:String>
+                    <x:String>Repartidor 2</x:String>
+                    <x:String>Repartidor 3</x:String>
+                    <x:String>Repartidor 4</x:String>
+                </ComboBox>
+                <ComboBox x:Name="Cantidad" SelectionChanged="CantidadSelection" Margin="10" HorizontalAlignment="Stretch" Header="Tamaño de Envio" PlaceholderText="Seleccione la cantidad de pizzas que lleva">
+                    <x:String>1 Pizza</x:String>
+                    <x:String>2 Pizza</x:String>
+                    <x:String>3 Pizza</x:String>
+                    <x:String>4 Pizza</x:String>
+                    <x:String>5 Pizza</x:String>
+                    <x:String>6 Pizza</x:String>
+                    <x:String>7 Pizza</x:String>
+                    <x:String>8 Pizza</x:String>
+                    <x:String>9 Pizza</x:String>
+                    <x:String>10 Pizza</x:String>
+                </ComboBox>
+                <TextBox Name="Total" Margin="10" Header="Dinero" PlaceholderText="Ingrese el total del pedido que lleva"/>
+                <Button Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch" Click="Agregar"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
