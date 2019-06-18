@@ -5,6 +5,7 @@
     xmlns:local="using:MVITO.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:MVITO.Clases"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -278,8 +279,16 @@
 
 
                     <Grid Grid.Column="0">
-
-                        <ListView x:Name="listaempleados" Margin="10" >
+                        <ScrollViewer>
+                        <StackPanel HorizontalAlignment="Center" Width="600">
+                            <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18">Seleccion al(los) empleados deseados</TextBlock>
+                                <StackPanel Orientation="Horizontal" MaxWidth="500" HorizontalAlignment="Center">
+                                    <TextBlock Name="probando" Margin="10,0" Text="Buscar Empleado" VerticalAlignment="Center"></TextBlock>
+                                    <TextBox Name="Buscadorempleado" Margin="10,0" Width="250" />
+                                    <Button Name="btnsearchempleados" Margin="5,0" Content="buscar" Click="Btnsearchempleados_Click"></Button>
+                                </StackPanel>
+                                <TextBlock></TextBlock>
+                                <ListView Name="listaempleados" Margin="10"  ItemClick="Listaempleados_ItemClick" SelectionMode="Single" IsItemClickEnabled="True"  >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -289,6 +298,7 @@
                                                 <TextBlock Text="{Binding IDemp}"></TextBlock>
                                                 <TextBlock Text="{Binding NmEmp}"></TextBlock>
                                                 <TextBlock Text="{Binding PstEmp}"></TextBlock>
+                                                <TextBlock Text="{Binding SalEmp}"></TextBlock>
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>
@@ -297,15 +307,62 @@
                             
 
                         </ListView>
+                        </StackPanel>
+                        </ScrollViewer>
 
                     </Grid>
 
                     <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="7*"/>
-                            <RowDefinition Height="617*"/>
-                        </Grid.RowDefinitions>
+                        
 
+                        <StackPanel  Height="40px" Margin="0,0,0,520">
+                            <ComboBox x:Name="Tipoextra"   Width="300" Height="40" PlaceholderText="Escoja el tipo de Ingreso/Egreso" HorizontalAlignment="Center" SelectionChanged="Tipoextra_SelectionChanged">
+                                <x:String>Horas Extras</x:String>
+                                <x:String>Ingresos extras</x:String>
+                                <x:String>Egresos Extras</x:String>
+                            </ComboBox>
+
+                        </StackPanel>
+
+                        <StackPanel Name="stackhx" Width="400" Margin="0,150" Visibility="Collapsed" Background="#CCF4F3F3" CornerRadius="20">
+
+                            <TextBlock FontSize="20" Margin="10" HorizontalAlignment="Center">Ingreso de horas extras</TextBlock>
+                            <TimePicker Name="hx1" Margin="10" ClockIdentifier="24HourClock" Header="Desde las" MinuteIncrement="0" />
+                            <TimePicker Name="hx2" Margin="10" ClockIdentifier="24HourClock" Header="Hasta las" MinuteIncrement="0" />
+
+                            <DatePicker Name="hxfch" Margin="10" Header="Fecha"></DatePicker>
+
+                            <Button Name="botonhx" Margin="10" HorizontalAlignment="Center" Click="Botonhx_Click" Background="CornflowerBlue">Ingresar Horas extras</Button>
+
+                        </StackPanel>
+
+                        <StackPanel Name="stackin" Width="350" Margin="0,150" Visibility="Collapsed" Background="#CCF4F3F3">
+
+                            <TextBlock Margin="10" HorizontalAlignment="Center">Ingreso Extra</TextBlock>
+                            <TextBox Name="ixdescripcion" Margin="10" PlaceholderText="Ingrese la descripccion del ingreso" Header="Descripcion del ingreso"></TextBox>
+                            <TextBox Name="ixtotal" Margin="10" Header="Total efectivo" PlaceholderText="Ingrese el total a pagar"></TextBox>
+                            <DatePicker Name="ixfch" Margin="10" Header="Fecha"></DatePicker>
+
+                            <Button Name="ixingreso" Margin="10" HorizontalAlignment="Center" Background="CornflowerBlue" Click="Ixingreso_Click">Ingresar Ingreso extras</Button>
+
+                        </StackPanel>
+
+                       
+                            <StackPanel Name="stackeg" Width="400" Margin="0,150"  Visibility="Collapsed" Background="#CCF4F3F3">
+
+                            
+                                
+                                <TextBlock Margin="10" HorizontalAlignment="Center">Egreso Extra</TextBlock>
+                                <ToggleSwitch Name="diaperdido" OnContent="Dia perdido" OffContent="Dia perdido" Margin="10" IsEnabled="False" Toggled="Diaperdido_Toggled"/>
+                            <TextBox Name="exdescripcion" Margin="10" PlaceholderText="Ingrese la descripccion del egreso" Header="Descripcion del egreso"></TextBox>
+                                <TextBox Name="extotal" Margin="10" Header="Total efectivo" PlaceholderText="Ingrese el total a pagar"></TextBox>
+                                <DatePicker Name="exfch" Margin="10" Header="Fecha"></DatePicker>
+
+                                <Button Name="exingreso" Margin="10" HorizontalAlignment="Center" Background="CornflowerBlue" Click="Exingreso_Click">Ingresar Egreso extras</Button>
+                           
+
+                        </StackPanel>
+                        
 
 
                     </Grid>

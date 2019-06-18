@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Data;
 
+
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MVITO.Views
@@ -28,12 +29,25 @@ namespace MVITO.Views
     /// </summary>
     public sealed partial class Page6 : Page
     {
+
+        //Conexion
+        Connection cnn = new Connection();
+        //tabla para cargar empleados
+        DataSet Tabla = new DataSet();
+        //Otra conexion xD revisa para que es antes de entregar
+        Connection con = new Connection();
+        //variable para guardar identidad
+        string identidad;
+        //variable para guardar salario
+        decimal dinero;
+
+        ObservableCollection<Empleados> emp = new ObservableCollection<Empleados>(); 
+
         public Page6()
         {
             this.InitializeComponent();
 
-            DataSet Tabla = new DataSet();
-            Connection con = new Connection();
+            
 
             Tabla = con.Conexion(Convert.ToString("Exec ShowEmpleados"));
 
@@ -44,7 +58,7 @@ namespace MVITO.Views
             decimal sal;
             int filas = Tabla.Tables[0].Rows.Count;
 
-            ObservableCollection<Empleados> dl = new ObservableCollection<Empleados>();
+
             for (int i = 0; i < filas; i++)
             {
 
@@ -53,12 +67,16 @@ namespace MVITO.Views
                 sal = Convert.ToDecimal(Tabla.Tables[0].Rows[i][2]);
                 pst = Convert.ToString(Tabla.Tables[0].Rows[i][3]);
 
-                Empleados Empledatos = new Empleados() { IDemp = cta , NmEmp = nom , PstEmp = pst  };
-                dl.Add(Empledatos);
-                listaempleados.ItemsSource = dl;
+                Empleados Empledatos = new Empleados() { IDemp = cta, NmEmp = nom, PstEmp = pst, SalEmp = sal };
+                emp.Add(Empledatos);
+
+
             }
-            
-            
+
+            listaempleados.ItemsSource = emp;
+
+
+
         }
 
 
@@ -423,7 +441,7 @@ namespace MVITO.Views
 
         private void IngresoEmpleado_Click(object sender, RoutedEventArgs e)
         {
-            Connection cnn = new Connection();
+            
 
             
            
@@ -457,9 +475,55 @@ namespace MVITO.Views
 
             }
 
-           
+          
+
+
         }
-      
+
+
+          
+        private void Btnsearchempleados_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+            //string cta;
+            //string nom;
+            //string pst;
+            //decimal sal;
+            //int filas = Tabla.Tables[0].Rows.Count;
+            //dl.Clear();
+
+
+
+            //for (int i = 0; i < filas; i++)
+            //{
+
+
+
+            //    cta = Convert.ToString(Tabla.Tables[0].Rows[i][0]);
+            //    nom = Convert.ToString(Tabla.Tables[0].Rows[i][1]);
+            //    sal = Convert.ToDecimal(Tabla.Tables[0].Rows[i][2]);
+            //    pst = Convert.ToString(Tabla.Tables[0].Rows[i][3]);
+
+
+            //    if (nom.Contains(Buscadorempleado.Text))
+            //    {
+            //        Empleados Empledatos = new Empleados() { IDemp = cta, NmEmp = nom, PstEmp = pst, SalEmp = Convert.ToString("Salario: " + sal) };
+            //        dl.Add(Empledatos);
+
+
+            //    }
+
+
+            //}
+
+            //listaempleados.ItemsSource = dl;
+
+
+        }
+
+
+
 
         //////////////////////////////////////////////////////////////////////////////////////
 
@@ -475,6 +539,169 @@ namespace MVITO.Views
 
         }
 
-       
+        private void Tipoextra_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if( Convert.ToString(Tipoextra.SelectedItem)  == "Horas Extras")
+            {
+
+                stackhx.Visibility = Visibility.Visible;
+                stackin.Visibility = Visibility.Collapsed;
+                stackeg.Visibility = Visibility.Collapsed;
+
+            }
+
+            if (Convert.ToString(Tipoextra.SelectedItem) == "Ingresos extras")
+            {
+
+                stackin.Visibility = Visibility.Visible;
+                stackeg.Visibility = Visibility.Collapsed;
+                stackhx.Visibility = Visibility.Collapsed;
+
+            }
+
+            if (Convert.ToString(Tipoextra.SelectedItem) == "Egresos Extras")
+            {
+
+                stackeg.Visibility = Visibility.Visible;
+                stackhx.Visibility = Visibility.Collapsed;
+                stackin.Visibility = Visibility.Collapsed;
+
+            }
+
+        }
+
+        private async void Botonhx_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+            if (listaempleados.SelectedItem != null && hx1.SelectedTime != null && hx2.SelectedTime != null && hxfch.SelectedDate != null)
+            {
+
+                string h1 = Convert.ToString(hx1.SelectedTime).Substring(0, 2);
+                string h2 = Convert.ToString(hx2.SelectedTime).Substring(0, 2);
+                int totalhx = 0;
+                int tipo = 0;
+                
+
+                if (Convert.ToInt32(h2) > Convert.ToInt32(h1))
+                {
+                    totalhx = Convert.ToInt32(h2) - Convert.ToInt32(h1);
+                }
+
+                if (Convert.ToInt32(h2) < Convert.ToInt32(h1))
+                {
+                   totalhx = (24 - Convert.ToInt32(h1)) + Convert.ToInt32(h2);
+                }
+
+                if (Convert.ToInt32(h1) > 5 && Convert.ToInt32(h2) < 19)
+                {
+                    //las horas tipo 1 son diurnas
+                    tipo = 1;
+                }
+                else
+                {
+                    //las horas tipo 2 son nocturnas
+                    tipo = 2;
+                }
+
+
+                    if(totalhx <= 12 && totalhx != 0)
+                    {
+
+                    
+
+
+                    cnn.EXECUTE(Convert.ToString("Exec InHrsX  '" + identidad + "', '" + hxfch.SelectedDate + "', '" + totalhx + "',  '" + tipo + "'"));
+
+                    
+
+                    
+
+
+
+
+
+                }
+                    else
+                    {
+                        string mensaje = "Error, Ingrese un rango de horas valido";
+                        MessageDialog ms = new MessageDialog(mensaje, "Las horas extras no pueden exceder a 12 horas ni pueden ser 0");
+                        await ms.ShowAsync();
+
+
+                    }   
+
+            }
+            else
+            {
+                string mensaje = "Error, Hay campos que necesitan ser llenados";
+                MessageDialog ms = new MessageDialog(mensaje, "Se han dejado campos vacios o no se selecciono un empleado");
+                await ms.ShowAsync();
+            }
+
+
+
+        }
+
+        private void Listaempleados_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Empleados emple = (Empleados)e.ClickedItem;
+
+            diaperdido.IsEnabled = true;
+
+            identidad = Convert.ToString(emple.IDemp);
+            dinero = Convert.ToDecimal(emple.SalEmp);
+
+            
+        }
+
+        private async void Ixingreso_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (listaempleados.SelectedItem != null && ixdescripcion.Text != "" && ixtotal.Text != "" && ixfch.SelectedDate != null)
+            {
+
+                cnn.EXECUTE(Convert.ToString("Exec InOtrosInEg  '" + identidad + "', '" + ixdescripcion.Text + "', '" + 1 + "',  '" + ixtotal.Text + "' ,  '" + ixfch.SelectedDate + "'"));
+
+            }
+            else
+            {
+
+                string mensaje = "Error, Hay campos que necesitan ser llenados";
+                MessageDialog ms = new MessageDialog(mensaje, "Se han dejado campos vacios o no se selecciono un empleado");
+                await ms.ShowAsync();
+
+            }
+
+        }
+
+        private async void Exingreso_Click(object sender, RoutedEventArgs e)
+        {
+            if (listaempleados.SelectedItem != null && exdescripcion.Text != "" && extotal.Text != "" && exfch.SelectedDate != null)
+            {
+
+                cnn.EXECUTE(Convert.ToString("Exec InOtrosInEg  '" + identidad + "', '" + exdescripcion.Text + "', '" + 0 + "',  '" + extotal.Text + "' ,  '" + exfch.SelectedDate + "'"));
+
+            }
+            else
+            {
+
+                string mensaje = "Error, Hay campos que necesitan ser llenados";
+                MessageDialog ms = new MessageDialog(mensaje, "Se han dejado campos vacios o no se selecciono un empleado");
+                await ms.ShowAsync();
+
+            }
+
+        }
+
+        private void Diaperdido_Toggled(object sender, RoutedEventArgs e)
+        {
+
+            exdescripcion.Text = "Dia de trabajo perdido";
+            extotal.Text = Convert.ToString(  Math.Round((dinero / 30) / 8 , 2) );
+
+
+        }
     }
 }

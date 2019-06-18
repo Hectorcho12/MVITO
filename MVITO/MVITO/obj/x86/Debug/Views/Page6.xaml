@@ -5,6 +5,7 @@
     xmlns:local="using:MVITO.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:MVITO.Clases"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -22,18 +23,18 @@
                     </Grid>
                     <Grid Grid.Column="1">
                         <StackPanel Height="auto" VerticalAlignment="Top" Margin="57,38,0,0" HorizontalAlignment="Left" Width="360">
-                            <TextBlock x:ConnectionId='47' Name="aviso" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock x:ConnectionId='67' Name="aviso" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center"></TextBlock>
                             <GridViewHeaderItem Content="Registro de Pagos y Gastos" VerticalAlignment="Top" Margin="0,10"/>
                             <TextBlock TextWrapping="Wrap" Margin="10" Text="Ingrese Gastos de Operacion como ser el pago de servicios publicos o cualquier otro gasto que haya tenido su empresa " FocusVisualPrimaryBrush="Black"/>
-                            <ComboBox x:ConnectionId='48' Name="Gasto" Margin="10" Width="339" Header="Gasto" PlaceholderText="Seleccion el tipo de gasto a ingresar" >
+                            <ComboBox x:ConnectionId='68' Name="Gasto" Margin="10" Width="339" Header="Gasto" PlaceholderText="Seleccion el tipo de gasto a ingresar" >
                                 <x:String>Servicios Publicos</x:String>
                                 <x:String>Mantenimiento</x:String>
                                 <x:String>Alquiler</x:String>
                                 <x:String>Otros</x:String>
                             </ComboBox>
-                            <TextBox x:ConnectionId='49' Name="Descripciong" Margin="10" Header="Descripcion del Gasto" PlaceholderText="Describa su gasto"                                             />
-                            <TextBox x:ConnectionId='50' Name="Totalg" Margin="10" Header="Total" PlaceholderText="Ingrese el total pagado"                                       />
-                            <Button x:ConnectionId='51'                      Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"/>
+                            <TextBox x:ConnectionId='69' Name="Descripciong" Margin="10" Header="Descripcion del Gasto" PlaceholderText="Describa su gasto"                                             />
+                            <TextBox x:ConnectionId='70' Name="Totalg" Margin="10" Header="Total" PlaceholderText="Ingrese el total pagado"                                       />
+                            <Button x:ConnectionId='71'                      Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -60,31 +61,31 @@
 
                         <ScrollViewer>
                             <StackPanel Width="361" Height="679" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,10,0,0" >
-                                <TextBlock x:ConnectionId='29' Visibility="Collapsed"  Name="avisoc" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center" ></TextBlock>
+                                <TextBlock x:ConnectionId='49' Visibility="Collapsed"  Name="avisoc" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center" ></TextBlock>
                                 <GridViewHeaderItem Content="Registro de Compras" VerticalAlignment="Top" Margin="0,10"/>
                                 <TextBlock TextWrapping="Wrap" Margin="10, 1" Text="Ingrese toda compra de productos realizados como materia prima, material de aseo, artuclos del negocio o productos para ventas"/>
-                                <ComboBox x:ConnectionId='30' x:Name="Compras" Header="Compras"  Margin="10,3" HorizontalAlignment="Stretch" PlaceholderText="Seleccione "                                            >
-                                    <ComboBoxItem x:ConnectionId='43' x:Name="op1" Content="Insumos(Materias Primas)"/>
-                                    <ComboBoxItem x:ConnectionId='44' x:Name="op2" Content="Materiales/Equipo de trabajo"/>
-                                    <ComboBoxItem x:ConnectionId='45' x:Name="op3" Content="Moviliario/Material de oficina"/>
-                                    <ComboBoxItem x:ConnectionId='46' x:Name="op4" Content="Otros(Especifique en descripcion)"/>
+                                <ComboBox x:ConnectionId='50' x:Name="Compras" Header="Compras"  Margin="10,3" HorizontalAlignment="Stretch" PlaceholderText="Seleccione "                                            >
+                                    <ComboBoxItem x:ConnectionId='63' x:Name="op1" Content="Insumos(Materias Primas)"/>
+                                    <ComboBoxItem x:ConnectionId='64' x:Name="op2" Content="Materiales/Equipo de trabajo"/>
+                                    <ComboBoxItem x:ConnectionId='65' x:Name="op3" Content="Moviliario/Material de oficina"/>
+                                    <ComboBoxItem x:ConnectionId='66' x:Name="op4" Content="Otros(Especifique en descripcion)"/>
 
                                 </ComboBox>
-                                <TextBox x:ConnectionId='31' Name="Descripcionc"  Margin="10,3" Header="Descripcion de la Compra" PlaceholderText="Describa los articulos en su compra"                                             />
-                                <TextBox x:ConnectionId='32' Name="cantidad"  Margin="10,3" Header="Cantidad" PlaceholderText="Ingrese la cantidad de articulos comprados" Width="339"                                                                            />
-                                <StackPanel x:ConnectionId='33' Name="splitpanel" Margin="10" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="360"   >
-                                    <ToggleSwitch x:ConnectionId='39' Name="interruptor" OnContent="Calcular total" OffContent="Calcular total" Margin="0,1"                              ></ToggleSwitch>
-                                    <StackPanel x:ConnectionId='40' Name="panelcalcular" Margin="0,18" Orientation="Horizontal" Visibility="Collapsed">
-                                        <TextBox x:ConnectionId='41' Width="150" Name="precio" Margin="1"  Header="precio por Unidad" HorizontalAlignment="Left"                                                                         />
-                                        <Button x:ConnectionId='42' Margin="23,20,0,0" x:Name="calcular" Content="Calcular" Background="#334DC1FD" IsEnabled="False"                        />
+                                <TextBox x:ConnectionId='51' Name="Descripcionc"  Margin="10,3" Header="Descripcion de la Compra" PlaceholderText="Describa los articulos en su compra"                                             />
+                                <TextBox x:ConnectionId='52' Name="cantidad"  Margin="10,3" Header="Cantidad" PlaceholderText="Ingrese la cantidad de articulos comprados" Width="339"                                                                            />
+                                <StackPanel x:ConnectionId='53' Name="splitpanel" Margin="10" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="360"   >
+                                    <ToggleSwitch x:ConnectionId='59' Name="interruptor" OnContent="Calcular total" OffContent="Calcular total" Margin="0,1"                              ></ToggleSwitch>
+                                    <StackPanel x:ConnectionId='60' Name="panelcalcular" Margin="0,18" Orientation="Horizontal" Visibility="Collapsed">
+                                        <TextBox x:ConnectionId='61' Width="150" Name="precio" Margin="1"  Header="precio por Unidad" HorizontalAlignment="Left"                                                                         />
+                                        <Button x:ConnectionId='62' Margin="23,20,0,0" x:Name="calcular" Content="Calcular" Background="#334DC1FD" IsEnabled="False"                        />
                                     </StackPanel>
                                 </StackPanel>
-                                <TextBox x:ConnectionId='34' x:Name="Totalc"  Margin="10,3" Header="Total" PlaceholderText="Ingrese el total pagado"                                       />
-                                <ComboBox x:ConnectionId='35' x:Name="Selection" Header="Impuestos"   Margin="10,3" HorizontalAlignment="Stretch" PlaceholderText="Seleccione los impuestos de su compra">
-                                    <ComboBoxItem x:ConnectionId='37' x:Name="ISV" Content="15% ISV"/>
-                                    <ComboBoxItem x:ConnectionId='38' x:Name="NoISV" Content="Compra Excenta"/>
+                                <TextBox x:ConnectionId='54' x:Name="Totalc"  Margin="10,3" Header="Total" PlaceholderText="Ingrese el total pagado"                                       />
+                                <ComboBox x:ConnectionId='55' x:Name="Selection" Header="Impuestos"   Margin="10,3" HorizontalAlignment="Stretch" PlaceholderText="Seleccione los impuestos de su compra">
+                                    <ComboBoxItem x:ConnectionId='57' x:Name="ISV" Content="15% ISV"/>
+                                    <ComboBoxItem x:ConnectionId='58' x:Name="NoISV" Content="Compra Excenta"/>
                                 </ComboBox>
-                                <Button x:ConnectionId='36' Content="Guardar" Background="CornflowerBlue"  Margin="10,3" Height="39" HorizontalAlignment="Stretch"                       Width="340"/>
+                                <Button x:ConnectionId='56' Content="Guardar" Background="CornflowerBlue"  Margin="10,3" Height="39" HorizontalAlignment="Stretch"                       Width="340"/>
                             </StackPanel>
 
                         </ScrollViewer>
@@ -111,19 +112,19 @@
                     </Grid>
                     <Grid Grid.Column="1">
                         <StackPanel Width="360" Height="443" HorizontalAlignment="Left" Margin="33,63,0,0"   VerticalAlignment="Top">
-                            <TextBlock x:ConnectionId='24'   Name="avisop" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center" ></TextBlock>
+                            <TextBlock x:ConnectionId='44'   Name="avisop" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center" ></TextBlock>
                             <GridViewHeaderItem Content="Registro de Perdidas" VerticalAlignment="Top" Margin="0,10"/>
                             <TextBlock TextWrapping="Wrap" Margin="10" Text="Ingrese Productos devueltos, equipo descompuesto o ingretientes expirados"/>
 
-                            <ComboBox x:ConnectionId='25' Name="Perdidas" Margin="10" Width="339" Header="Perdida" PlaceholderText="Seleccion el tipo de perdida" >
+                            <ComboBox x:ConnectionId='45' Name="Perdidas" Margin="10" Width="339" Header="Perdida" PlaceholderText="Seleccion el tipo de perdida" >
                                 <x:String>Devolucion</x:String>
                                 <x:String>Equipo dañado</x:String>
                                 <x:String>Producto perdido/en mal estado</x:String>
                                 <x:String>Otros</x:String>
                             </ComboBox>
-                            <TextBox x:ConnectionId='26' Name="Descripcionp" Margin="10" Header="Descripcion de la Perdida" PlaceholderText="Describa detalladamente su perdida"                                             />
-                            <TextBox x:ConnectionId='27' Name="Totalp" Margin="10" Header="Total" PlaceholderText="Ingrese el monto de su perdida"                                       />
-                            <Button x:ConnectionId='28'                        Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"/>
+                            <TextBox x:ConnectionId='46' Name="Descripcionp" Margin="10" Header="Descripcion de la Perdida" PlaceholderText="Describa detalladamente su perdida"                                             />
+                            <TextBox x:ConnectionId='47' Name="Totalp" Margin="10" Header="Total" PlaceholderText="Ingrese el monto de su perdida"                                       />
+                            <Button x:ConnectionId='48'                        Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -146,17 +147,17 @@
                         <StackPanel Width="360" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,36,0,0">
                             <GridViewHeaderItem Content="Registro de Tiempos" VerticalAlignment="Top" Margin="0,10"/>
                             <TextBlock TextWrapping="Wrap" Margin="10" Text="Tome el registro de salida y regreso de cada repartidor para estimar el tiempo de recorrido"/>
-                            <ComboBox x:ConnectionId='19' x:Name="Movimiento" Margin="10" HorizontalAlignment="Stretch" Header="Movimiento" PlaceholderText="Seleccione si el Repartidor Sale o Regresa"                                       >
+                            <ComboBox x:ConnectionId='39' x:Name="Movimiento" Margin="10" HorizontalAlignment="Stretch" Header="Movimiento" PlaceholderText="Seleccione si el Repartidor Sale o Regresa"                                       >
                                 <x:String>Repartidor Saliendo</x:String>
                                 <x:String>Repartidor Regresa</x:String>
                             </ComboBox>
-                            <ComboBox x:ConnectionId='20' x:Name="Repartidor"                                        Margin="10" HorizontalAlignment="Stretch" Header="Repartidor" PlaceholderText="Seleccione Repartidor">
+                            <ComboBox x:ConnectionId='40' x:Name="Repartidor"                                        Margin="10" HorizontalAlignment="Stretch" Header="Repartidor" PlaceholderText="Seleccione Repartidor">
                                 <x:String>Repartidor 1</x:String>
                                 <x:String>Repartidor 2</x:String>
                                 <x:String>Repartidor 3</x:String>
                                 <x:String>Repartidor 4</x:String>
                             </ComboBox>
-                            <ComboBox x:ConnectionId='21' x:Name="Cantidad"                                      Margin="10" HorizontalAlignment="Stretch" Header="Tamaño de Envio" PlaceholderText="Seleccione la cantidad de pizzas que lleva">
+                            <ComboBox x:ConnectionId='41' x:Name="Cantidad"                                      Margin="10" HorizontalAlignment="Stretch" Header="Tamaño de Envio" PlaceholderText="Seleccione la cantidad de pizzas que lleva">
                                 <x:String>1 Pizza</x:String>
                                 <x:String>2 Pizza</x:String>
                                 <x:String>3 Pizza</x:String>
@@ -168,8 +169,8 @@
                                 <x:String>9 Pizza</x:String>
                                 <x:String>10 Pizza</x:String>
                             </ComboBox>
-                            <TextBox x:ConnectionId='22' Name="Totalrepartidores" Margin="10" Header="Dinero" PlaceholderText="Ingrese el total del pedido que lleva"/>
-                            <Button x:ConnectionId='23' Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"                          />
+                            <TextBox x:ConnectionId='42' Name="Totalrepartidores" Margin="10" Header="Dinero" PlaceholderText="Ingrese el total del pedido que lleva"/>
+                            <Button x:ConnectionId='43' Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch"                          />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -202,15 +203,15 @@
                                 <TextBlock TextWrapping="Wrap" Margin="10" Text="Registro a cada uno de sus empleados para llevar un control total de su planilla. Esto incluye deducciones a empleados, pagos de horas extras e ingresos y egresos extras"/>
                                 <TextBlock TextWrapping="Wrap" Margin="10" Text="Datos Generales" FontSize="15" HorizontalAlignment="Center"/>
 
-                                <TextBox x:ConnectionId='13' Name="IDempleado" Margin="10,0" Header="Identificacion" PlaceholderText="Ingrese numero de identidad del empleado"/>
-                                <TextBox x:ConnectionId='14' Name="nomempleado" Margin="10,0" Header="Nombre Completo" PlaceholderText="Ingrese el nombre del empleado"/>
-                                <DatePicker x:ConnectionId='15' Name="nacempleado" Header="Fecha de nacimiento" Margin="10,0" Width="337"></DatePicker>
-                                <ComboBox x:ConnectionId='16' Name="genempleado" Margin="10,0" Header="Genero" Width="337" PlaceholderText="Escoja el genero del empleado">
+                                <TextBox x:ConnectionId='33' Name="IDempleado" Margin="10,0" Header="Identificacion" PlaceholderText="Ingrese numero de identidad del empleado"/>
+                                <TextBox x:ConnectionId='34' Name="nomempleado" Margin="10,0" Header="Nombre Completo" PlaceholderText="Ingrese el nombre del empleado"/>
+                                <DatePicker x:ConnectionId='35' Name="nacempleado" Header="Fecha de nacimiento" Margin="10,0" Width="337"></DatePicker>
+                                <ComboBox x:ConnectionId='36' Name="genempleado" Margin="10,0" Header="Genero" Width="337" PlaceholderText="Escoja el genero del empleado">
                                     <x:String>Masculino</x:String>
                                     <x:String>Femenino</x:String>
                                 </ComboBox>
-                                <DatePicker x:ConnectionId='17' Name="iniempleado" Header="Fecha de Inicio" Margin="10,0" Width="337"></DatePicker>
-                                <TextBox x:ConnectionId='18' Name="domempleado" Margin="10,0" Header="Domicilio del empleado" PlaceholderText="Ingrese el domicilio del empleado"/>
+                                <DatePicker x:ConnectionId='37' Name="iniempleado" Header="Fecha de Inicio" Margin="10,0" Width="337"></DatePicker>
+                                <TextBox x:ConnectionId='38' Name="domempleado" Margin="10,0" Header="Domicilio del empleado" PlaceholderText="Ingrese el domicilio del empleado"/>
 
 
                             </StackPanel>
@@ -226,25 +227,25 @@
                         <StackPanel Width="360" Height="560" HorizontalAlignment="Left" Margin="112,54,0,10" Background="#CCF4F3F3">
                             <TextBlock TextWrapping="Wrap" Margin="10" Text="Datos del puesto" FontSize="15" HorizontalAlignment="Center"/>
 
-                            <TextBox x:ConnectionId='5' Name="Salarioempleado" Margin="10,3" Header="Salario" PlaceholderText="Ingrese el salario de su empleado"/>
+                            <TextBox x:ConnectionId='25' Name="Salarioempleado" Margin="10,3" Header="Salario" PlaceholderText="Ingrese el salario de su empleado"/>
 
                            
 
 
 
-                            <TimePicker x:ConnectionId='6'  Name="cbxentrada" Margin="10,3" ClockIdentifier="24HourClock" Header="Hora de entrada" />
-                            <TimePicker x:ConnectionId='7' Name="Cbxsalida" Margin="10,3"  ClockIdentifier="24HourClock" Header="Hora de Salida" />
+                            <TimePicker x:ConnectionId='26'  Name="cbxentrada" Margin="10,3" ClockIdentifier="24HourClock" Header="Hora de entrada" />
+                            <TimePicker x:ConnectionId='27' Name="Cbxsalida" Margin="10,3"  ClockIdentifier="24HourClock" Header="Hora de Salida" />
 
 
-                            <TextBox x:ConnectionId='8' Name="puestoempleado" Margin="10,3" Header="Puesto" PlaceholderText="Ingrese el puesto de trabajo del empleado"/>
-                            <TextBox x:ConnectionId='9' Name="comentarioempleado" Margin="10,3" Header="Comentarios" PlaceholderText="Añada convenios o acuerdos con el empleado"/>
+                            <TextBox x:ConnectionId='28' Name="puestoempleado" Margin="10,3" Header="Puesto" PlaceholderText="Ingrese el puesto de trabajo del empleado"/>
+                            <TextBox x:ConnectionId='29' Name="comentarioempleado" Margin="10,3" Header="Comentarios" PlaceholderText="Añada convenios o acuerdos con el empleado"/>
                             
-                             <DatePicker x:ConnectionId='10'  Name="durampleado" Header="Duracion del contrato" Margin="10,0" ></DatePicker>
+                             <DatePicker x:ConnectionId='30'  Name="durampleado" Header="Duracion del contrato" Margin="10,0" ></DatePicker>
                             <TextBlock TextWrapping="Wrap" Margin="10,0" Text="Marque la casilla si la duracion del contrato sera indefinida" FontSize="15"></TextBlock>
-                            <CheckBox x:ConnectionId='11' Name="Indefinido" Margin="10,0" Content="Contrato Indefinido" Foreground="Aqua"></CheckBox>
+                            <CheckBox x:ConnectionId='31' Name="Indefinido" Margin="10,0" Content="Contrato Indefinido" Foreground="Aqua"></CheckBox>
                                 
                             
-                            <Button x:ConnectionId='12' x:Name="IngresoEmpleado" Margin="10,20"  Height="40" Width="338" Content="Guardar" HorizontalAlignment="Center" Background="CornflowerBlue"                               />
+                            <Button x:ConnectionId='32' x:Name="IngresoEmpleado" Margin="10,20"  Height="40" Width="338" Content="Guardar" HorizontalAlignment="Center" Background="CornflowerBlue"                               />
 
                         </StackPanel>
                         </ScrollViewer>
@@ -278,8 +279,16 @@
 
 
                     <Grid Grid.Column="0">
-
-                        <ListView x:ConnectionId='3' x:Name="listaempleados" Margin="10" >
+                        <ScrollViewer>
+                        <StackPanel HorizontalAlignment="Center" Width="600">
+                            <TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18">Seleccion al(los) empleados deseados</TextBlock>
+                                <StackPanel Orientation="Horizontal" MaxWidth="500" HorizontalAlignment="Center">
+                                    <TextBlock x:ConnectionId='22' Name="probando" Margin="10,0" Text="Buscar Empleado" VerticalAlignment="Center"></TextBlock>
+                                    <TextBox x:ConnectionId='23' Name="Buscadorempleado" Margin="10,0" Width="250" />
+                                    <Button x:ConnectionId='24' Name="btnsearchempleados" Margin="5,0" Content="buscar"                                 ></Button>
+                                </StackPanel>
+                                <TextBlock></TextBlock>
+                                <ListView x:ConnectionId='20' Name="listaempleados" Margin="10"                                       SelectionMode="Single" IsItemClickEnabled="True"  >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -289,6 +298,7 @@
                                                 <TextBlock Text="{Binding IDemp}"></TextBlock>
                                                 <TextBlock Text="{Binding NmEmp}"></TextBlock>
                                                 <TextBlock Text="{Binding PstEmp}"></TextBlock>
+                                                <TextBlock Text="{Binding SalEmp}"></TextBlock>
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>
@@ -297,15 +307,62 @@
                             
 
                         </ListView>
+                        </StackPanel>
+                        </ScrollViewer>
 
                     </Grid>
 
                     <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="7*"/>
-                            <RowDefinition Height="617*"/>
-                        </Grid.RowDefinitions>
+                        
 
+                        <StackPanel  Height="40px" Margin="0,0,0,520">
+                            <ComboBox x:ConnectionId='19' x:Name="Tipoextra"   Width="300" Height="40" PlaceholderText="Escoja el tipo de Ingreso/Egreso" HorizontalAlignment="Center"                                              >
+                                <x:String>Horas Extras</x:String>
+                                <x:String>Ingresos extras</x:String>
+                                <x:String>Egresos Extras</x:String>
+                            </ComboBox>
+
+                        </StackPanel>
+
+                        <StackPanel x:ConnectionId='3' Name="stackhx" Width="400" Margin="0,150" Visibility="Collapsed" Background="#CCF4F3F3" CornerRadius="20">
+
+                            <TextBlock FontSize="20" Margin="10" HorizontalAlignment="Center">Ingreso de horas extras</TextBlock>
+                            <TimePicker x:ConnectionId='15' Name="hx1" Margin="10" ClockIdentifier="24HourClock" Header="Desde las" MinuteIncrement="0" />
+                            <TimePicker x:ConnectionId='16' Name="hx2" Margin="10" ClockIdentifier="24HourClock" Header="Hasta las" MinuteIncrement="0" />
+
+                            <DatePicker x:ConnectionId='17' Name="hxfch" Margin="10" Header="Fecha"></DatePicker>
+
+                            <Button x:ConnectionId='18' Name="botonhx" Margin="10" HorizontalAlignment="Center"                       Background="CornflowerBlue">Ingresar Horas extras</Button>
+
+                        </StackPanel>
+
+                        <StackPanel x:ConnectionId='4' Name="stackin" Width="350" Margin="0,150" Visibility="Collapsed" Background="#CCF4F3F3">
+
+                            <TextBlock Margin="10" HorizontalAlignment="Center">Ingreso Extra</TextBlock>
+                            <TextBox x:ConnectionId='11' Name="ixdescripcion" Margin="10" PlaceholderText="Ingrese la descripccion del ingreso" Header="Descripcion del ingreso"></TextBox>
+                            <TextBox x:ConnectionId='12' Name="ixtotal" Margin="10" Header="Total efectivo" PlaceholderText="Ingrese el total a pagar"></TextBox>
+                            <DatePicker x:ConnectionId='13' Name="ixfch" Margin="10" Header="Fecha"></DatePicker>
+
+                            <Button x:ConnectionId='14' Name="ixingreso" Margin="10" HorizontalAlignment="Center" Background="CornflowerBlue"                        >Ingresar Ingreso extras</Button>
+
+                        </StackPanel>
+
+                       
+                            <StackPanel x:ConnectionId='5' Name="stackeg" Width="400" Margin="0,150"  Visibility="Collapsed" Background="#CCF4F3F3">
+
+                            
+                                
+                                <TextBlock Margin="10" HorizontalAlignment="Center">Egreso Extra</TextBlock>
+                                <ToggleSwitch x:ConnectionId='6' Name="diaperdido" OnContent="Dia perdido" OffContent="Dia perdido" Margin="10" IsEnabled="False"                             />
+                            <TextBox x:ConnectionId='7' Name="exdescripcion" Margin="10" PlaceholderText="Ingrese la descripccion del egreso" Header="Descripcion del egreso"></TextBox>
+                                <TextBox x:ConnectionId='8' Name="extotal" Margin="10" Header="Total efectivo" PlaceholderText="Ingrese el total a pagar"></TextBox>
+                                <DatePicker x:ConnectionId='9' Name="exfch" Margin="10" Header="Fecha"></DatePicker>
+
+                                <Button x:ConnectionId='10' Name="exingreso" Margin="10" HorizontalAlignment="Center" Background="CornflowerBlue"                        >Ingresar Egreso extras</Button>
+                           
+
+                        </StackPanel>
+                        
 
 
                     </Grid>

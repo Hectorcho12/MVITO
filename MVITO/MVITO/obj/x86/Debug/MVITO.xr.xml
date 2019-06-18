@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="SalEmp" />
     <RootPropertyPathName Name="PstEmp" />
     <RootPropertyPathName Name="NmEmp" />
     <RootPropertyPathName Name="IDemp" />
@@ -55,6 +56,8 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="Background" />
+      <RootProperty Name="CornerRadius" />
+      <RootProperty Name="MaxWidth" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.GridViewHeaderItem">
       <RootProperty Name="Content" />
@@ -65,9 +68,11 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Text" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Inlines" />
+      <RootProperty Name="FontSize" />
       <RootProperty Name="Name" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontStyle" />
       <RootProperty Name="Visibility" />
@@ -82,6 +87,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
@@ -115,6 +121,7 @@
       <RootProperty Name="OnContent" />
       <RootProperty Name="OffContent" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="IsEnabled" />
       <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="System.String" />
@@ -160,9 +167,23 @@
     <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform">
       <RootProperty Name="TranslateY" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+    <RootType FullName="Windows.UI.Xaml.Controls.TimePicker">
+      <RootProperty Name="Name" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="ClockIdentifier" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="MinuteIncrement" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -173,15 +194,6 @@
       <RootProperty Name="DisplayName" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
-      <RootProperty Name="Content" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TimePicker">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="ClockIdentifier" />
-      <RootProperty Name="Header" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Margin" />
