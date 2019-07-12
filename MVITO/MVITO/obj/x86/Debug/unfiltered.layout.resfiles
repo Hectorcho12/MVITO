@@ -9,9 +9,6 @@ Assets\Wide310x150Logo.scale-200.png
 App.xbf
 MainPage.xbf
 MVITO.xr.xml
-Views\Page1.xbf
-Views\Page2.xbf
-Views\Page3.xbf
 Views\Page4.xbf
 Views\Page5.xbf
 Views\Page6.xbf
@@ -22,6 +19,8 @@ Icons\losts.png
 Icons\monedas.png
 Icons\Pagos.png
 Icons\Perdidas.png
+Icons\reloj.jpg
 Icons\Repartidor.png
+Icons\reportes.jpg
 Icons\Reportes.png
 Properties\Default.rd.xml

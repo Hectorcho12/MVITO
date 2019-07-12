@@ -11,8 +11,9 @@
     <Grid>
         <NavigationView x:ConnectionId='2' x:Name="MainMenu" IsSettingsVisible="False"                               PaneDisplayMode="Top" IsBackButtonVisible="Collapsed">
             <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Bullets" Content="Empleados" Tag="Page4"/>
                 <NavigationViewItem Icon="Document" Content="Reportes" Tag="Page5"/>
-                <NavigationViewItem Icon="Document" Content="Empleados" Tag="Page6"/>
+                <NavigationViewItem Icon="Document" Content="Compras y gastos" Tag="Page6"/>
             </NavigationView.MenuItems>
             <Frame x:ConnectionId='3' x:Name="PanelContent"/>
         </NavigationView>

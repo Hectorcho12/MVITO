@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MVITO.Extensiones;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,11 +32,23 @@ namespace Monitoreo.Views
     {
         private Connection sql = new Connection();
         private string range = "";
-        DataSet ds = new DataSet();
+        public DataSet ds = new DataSet();
+        DataSet Tabla = new DataSet();
         private string fch;
+        public string fchinicio;
+        string desde;
+        string fchfinal;
+
+
+
+
+
+
         public Page5()
         {
             this.InitializeComponent();
+
+            Tabla = sql.Conexion(Convert.ToString("select IDemp, NombreEmp, SalarioEmp, PuestoEmp from Empleados"));
         }
 
         private void Load()
@@ -233,7 +246,7 @@ namespace Monitoreo.Views
 
 
 
-        private void RangeValue(object sender, SelectionChangedEventArgs e)
+        private async void RangeValue(object sender, SelectionChangedEventArgs e)
         {
             switch (e.AddedItems[0].ToString())
             {
@@ -243,23 +256,31 @@ namespace Monitoreo.Views
                     calcular.Visibility = Visibility.Collapsed;
                     range = DateTime.Today.ToString("dddd, dd MMMM yyyy");
                     Load();
+
+                    await Calculo.AnimateHeightAsync(0, 300, null);
                     ExcelButton.IsEnabled = true;
                     break;
                 case "Mensual":
                     mes.Visibility = Visibility.Visible;
                     año.Visibility = Visibility.Visible;
                     año.SelectedDate = DateTime.Today;
+                    mes.Visibility = Visibility.Visible;
                     calcular.Visibility = Visibility.Visible;
                     //range = DateTime.Today.ToString("MMMM yyyy");
+                    await Calculo.AnimateHeightAsync(200, 300, null);
 
                     ExcelButton.IsEnabled = true;
                     break;
                 case "Anual":
+
+                    
+
                     mes.Visibility = Visibility.Collapsed;
                     año.Visibility = Visibility.Visible;
                     calcular.Visibility = Visibility.Visible;
-                    Calculo.Visibility = Visibility.Visible;
-                    mes.Visibility = Visibility.Collapsed;
+
+                    await Calculo.AnimateHeightAsync(200, 300, null);
+
                     range = DateTime.Today.ToString("yyyy");
 
                     ExcelButton.IsEnabled = true;
@@ -308,7 +329,338 @@ namespace Monitoreo.Views
             {
                 Vcalcular();
             }
+
+
+      
+
+
+        private async void planillaMesAsync(DataSet ds)
+        {
+
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                //Set the default application version as Excel 2016.
+                excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2016;
+
+                //Create a workbook with a worksheet.
+                IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
+
+                //Access first worksheet from the workbook instance.
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                //Insert sample text into cell “A1”.
+                worksheet.Name = "Planilla_Mensual";
+                worksheet.Range["A1:J1"].CellStyle.Color = ColorHelper.FromArgb(0, 42, 118, 189);
+                worksheet.Range["A1:J1"].CellStyle.Font.Color = ExcelKnownColors.White;
+                worksheet.Range["A1"].ColumnWidth = 50;
+                worksheet.Range["B1:I1"].ColumnWidth = 16;
+                worksheet.Range["J1"].ColumnWidth = 30;
+                worksheet.Range["A1"].Text = "Empleado";
+                worksheet.Range["B1"].Text = "Salario Mes";
+                worksheet.Range["C1"].Text = "Hrs Extra";
+                worksheet.Range["D1"].Text = "ingreso extra";
+                worksheet.Range["E1"].Text = "IHSS";
+                worksheet.Range["F1"].Text = "RAP";
+                worksheet.Range["G1"].Text = "ISR";
+                worksheet.Range["H1"].Text = "Deducciones extra";
+                worksheet.Range["I1"].Text = "Total";
+                worksheet.Range["J1"].Text = "Fecha";
+
+
+                foreach (DataTable table in ds.Tables)
+                {
+                    int count = table.Rows.Count;
+                    for (int j = 0; j < count; j++)
+                    {
+                        worksheet.Range[string.Format("A{0}", j + 2)].Text = table.Rows[j].ItemArray[0].ToString();
+                        worksheet.Range[string.Format("B{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[1].ToString());
+                        worksheet.Range[string.Format("C{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[2].ToString());
+                        worksheet.Range[string.Format("D{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[3].ToString());
+                        worksheet.Range[string.Format("E{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[4].ToString());
+                        worksheet.Range[string.Format("F{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[5].ToString());
+                        worksheet.Range[string.Format("G{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[6].ToString());
+                        worksheet.Range[string.Format("H{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[7].ToString());
+                        worksheet.Range[string.Format("I{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[8].ToString());
+                        worksheet.Range[string.Format("J{0}", j + 2)].DateTime = DateTime.Parse(table.Rows[j].ItemArray[9].ToString());
+                    }
+
+
+                    StorageFile storageFile;
+
+                    
+                    FileSavePicker savePicker = new FileSavePicker();
+                    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                    savePicker.SuggestedFileName = "Planilla Mensual " + fchinicio;
+                    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                    storageFile = await savePicker.PickSaveFileAsync();
+
+                    if (storageFile != null)
+                    {
+                        await workbook.SaveAsAsync(storageFile); // GUARDA EL ARCHIVO EXCELL
+                        await Windows.System.Launcher.LaunchFileAsync(storageFile); // ABRE EXCEL
+                    }
+                }
+
+            }
+
+
+
         }
+
+
+        private async void planillasemAsync(DataSet ds)
+        {
+
+            using (ExcelEngine excelEngine = new ExcelEngine())
+            {
+                //Set the default application version as Excel 2016.
+                excelEngine.Excel.DefaultVersion = ExcelVersion.Excel2016;
+
+                //Create a workbook with a worksheet.
+                IWorkbook workbook = excelEngine.Excel.Workbooks.Create(1);
+
+                //Access first worksheet from the workbook instance.
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                //Insert sample text into cell “A1”.
+                worksheet.Name = "Planilla_Semanal";
+                worksheet.Range["A1:M1"].CellStyle.Color = ColorHelper.FromArgb(0, 42, 118, 189);
+                worksheet.Range["A1:M1"].CellStyle.Font.Color = ExcelKnownColors.White;
+                worksheet.Range["A1"].ColumnWidth = 50;
+                worksheet.Range["B1:L1"].ColumnWidth = 18;
+                worksheet.Range["M1"].ColumnWidth = 30;
+                worksheet.Range["A1"].Text = "Empleado";
+                worksheet.Range["B1"].Text = "Horas";
+                worksheet.Range["C1"].Text = "Salario Hora";
+                worksheet.Range["D1"].Text = "Devengado x 1.0909";
+                worksheet.Range["E1"].Text = "Septimo Dia";
+                worksheet.Range["F1"].Text = "Horas extra";
+                worksheet.Range["G1"].Text = "Otros ingresos";
+                worksheet.Range["H1"].Text = "Seguro";
+                worksheet.Range["I1"].Text = "Rap";
+                worksheet.Range["J1"].Text = "Isr";
+                worksheet.Range["K1"].Text = "Deducciones extra";
+                worksheet.Range["L1"].Text = "Total";
+                worksheet.Range["M1"].Text = "Fecha";
+
+
+                foreach (DataTable table in ds.Tables)
+                {
+                    int count = table.Rows.Count;
+                    for (int j = 0; j < count; j++)
+                    {
+                        worksheet.Range[string.Format("A{0}", j + 2)].Text = table.Rows[j].ItemArray[0].ToString();
+                        worksheet.Range[string.Format("B{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[1].ToString());
+                        worksheet.Range[string.Format("C{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[2].ToString());
+                        worksheet.Range[string.Format("D{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[3].ToString());
+                        worksheet.Range[string.Format("E{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[4].ToString());
+                        worksheet.Range[string.Format("F{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[5].ToString());
+                        worksheet.Range[string.Format("G{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[6].ToString());
+                        worksheet.Range[string.Format("H{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[7].ToString());
+                        worksheet.Range[string.Format("I{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[8].ToString());
+                        worksheet.Range[string.Format("J{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[9].ToString());
+                        worksheet.Range[string.Format("K{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[10].ToString());
+                        worksheet.Range[string.Format("L{0}", j + 2)].Number = double.Parse(table.Rows[j].ItemArray[11].ToString());
+                        worksheet.Range[string.Format("M{0}", j + 2)].DateTime = DateTime.Parse(table.Rows[j].ItemArray[12].ToString());
+                    }
+
+
+                    StorageFile storageFile;
+
+
+                    FileSavePicker savePicker = new FileSavePicker();
+                    savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                    savePicker.SuggestedFileName = "Planilla Semanal " + desde;
+                    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx" });
+                    storageFile = await savePicker.PickSaveFileAsync();
+
+                    if (storageFile != null)
+                    {
+                        await workbook.SaveAsAsync(storageFile); // GUARDA EL ARCHIVO EXCELL
+                        await Windows.System.Launcher.LaunchFileAsync(storageFile); // ABRE EXCEL
+                    }
+                }
+
+            }
+
+        }
+
+        private async void Tipopla_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (Convert.ToString(tipopla.SelectedItem) == "Mensual")
+            {
+                await plasem.AnimateHeightAsync(0, 300, null);
+                await plames.AnimateHeightAsync(80, 300, null);
+            }
+
+            if (Convert.ToString(tipopla.SelectedItem) == "Semanal")
+            {
+                await plames.AnimateHeightAsync(0, 300, null);
+                await plasem.AnimateHeightAsync(80, 300, null);
+
+            }
+
+        }
+
+        private async void Genplanilla_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (Convert.ToString(tipopla.SelectedItem) == "Mensual")
+            {
+
+                if (fchplamen.SelectedDate != null)
+
+                { 
+
+
+                int mesActual = Convert.ToInt32(fchplamen.SelectedDate.Value.Month);
+                int year = Convert.ToInt32(fchplamen.SelectedDate.Value.Year);
+                int mesSiguiente = mesActual + 1;
+
+
+                fchinicio = Convert.ToString("01/" + mesActual + "/" + year);
+
+                if(mesActual == 12)
+                {
+                    fchfinal = Convert.ToString("31/" + mesActual + "/" + year);
+
+                }
+                else
+                {
+
+                    DateTime mes = Convert.ToDateTime("01/" + mesSiguiente + "/" + year).AddDays(-1);
+                    fchfinal = Convert.ToString(mes).Substring(0, 10);
+
+                }
+
+                
+
+
+                int filas = Tabla.Tables[0].Rows.Count;
+
+
+
+                DataSet listemp = new DataSet();
+
+               
+                   
+                    for (int i = 0; i < filas; i++)
+                    {
+
+                        string cta;
+                        cta = Convert.ToString(Tabla.Tables[0].Rows[i][0]);
+                        sql.EXECUTE("Exec InPlanillaMes '" + cta + "', '" + fchinicio + "', '" + fchfinal + "'");
+
+
+
+
+                    }
+
+                    listemp = sql.Conexion("Exec ShowPlanillames '" + (Convert.ToDateTime(fchinicio)).ToString().Substring(0, 10) + "' ");
+                    planillaMesAsync(listemp);
+
+                }
+                else
+                {
+
+                    string mensaje = "Error, Selecione la fecha de la cual desea generar la planilla";
+                    MessageDialog ms = new MessageDialog(mensaje, "No se ingreso fecha");
+                    await ms.ShowAsync();
+
+                }
+
+            }
+            
+            
+            
+
+             
+
+            if (Convert.ToString(tipopla.SelectedItem) == "Semanal")
+            {
+
+                if(fchsem.Date != null)
+                {
+
+                    if (fchsem.Date.Value.DayOfWeek.ToString() == "Monday" || fchsem.Date.Value.DayOfWeek.ToString() == "Lunes")
+                    {
+                        int mesActual = Convert.ToInt32(fchsem.Date.Value.Month);
+                        int year = Convert.ToInt32(fchsem.Date.Value.Year);
+                        int mesSiguiente = mesActual + 1;
+
+
+                        fchinicio = Convert.ToString("01/" + mesActual + "/" + year);
+                        if (mesActual == 12)
+                        {
+                            fchfinal = Convert.ToString("31/" + mesActual + "/" + year);
+
+                        }
+                        else
+                        {
+
+                            DateTime mes = Convert.ToDateTime("01/" + mesSiguiente + "/" + year).AddDays(-1);
+                            fchfinal = Convert.ToString(mes).Substring(0, 10);
+
+                        }
+
+
+                        desde = fchsem.Date.Value.Date.ToString().Substring(0, 10);
+
+                        string hasta = fchsem.Date.Value.AddDays(6).ToString().Substring(0, 10);
+
+                        string cta;
+
+                        int filas = Tabla.Tables[0].Rows.Count;
+
+
+
+                        for (int i = 0; i < filas; i++)
+                        {
+
+                            cta = Convert.ToString(Tabla.Tables[0].Rows[i][0]);
+
+                            sql.EXECUTE("Exec InPlanillaSem '" + cta + "', '" + desde + "', '" + hasta + "', '" + fchinicio + "', '" + fchfinal + "'");
+
+
+                        }
+
+                        DataSet listemp = sql.Conexion("Exec ShowPlanillaSem '" + desde + "',  '" + hasta + "' ");
+                        planillasemAsync(listemp);
+
+
+
+                    }
+                    else
+                    {
+                        string mensaje = "Error, Selecione la fecha del dia lunes para calcular esa semana";
+                        MessageDialog ms = new MessageDialog(mensaje, "La fecha ingresada no corresponde a un Lunes");
+                        await ms.ShowAsync();
+                    }
+
+                }
+                else
+                {
+
+                    string mensaje = "Error, Selecione la fecha de la cual desea generar la planilla";
+                    MessageDialog ms = new MessageDialog(mensaje, "No se ingreso fecha");
+                    await ms.ShowAsync();
+
+                }
+            }
+
+
+            if (tipopla.SelectedItem == null)
+            {
+                string mensaje = "Error, Seleccione un tipo de planilla para continuar";
+                MessageDialog ms = new MessageDialog(mensaje, "No se seleccion ningun tipo de planilla");
+                await ms.ShowAsync();
+
+            }
+
+
+            }
+    }
     }
 
 

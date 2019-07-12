@@ -15,6 +15,21 @@ namespace MVITO.Clases
         public decimal SalEmp { get; set; }
         public string PstEmp { get; set; }
 
+        public string Fchnac { get; set; }
+        public string Genemp { get; set; }
+        public string Fchini { get; set; }
+        public string Estemp { get; set; }
+        public string DomEmp { get; set; }
+        public string hrentr { get; set; }
+
+        public string hrsali { get; set; }
+        public string comemp { get; set; }
+        public string duremp { get; set; }
+        public string hrsemp { get; set; }
+
+
+
+
     }
 
   

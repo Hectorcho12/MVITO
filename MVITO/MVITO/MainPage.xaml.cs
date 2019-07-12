@@ -1,5 +1,6 @@
-﻿using Monitoreo.Views;
+﻿
 using MVITO.Views;
+using MVITO.Clases;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Monitoreo.Views;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
 
@@ -25,16 +27,23 @@ namespace MVITO
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Connection con = new Connection();
+
         public MainPage()
         {
             this.InitializeComponent();
+
+
+           
         }
 
         private void PageChange(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             switch (((NavigationViewItem)args.SelectedItem).Tag.ToString())
             {
-                
+                case "Page4":
+                    PanelContent.Navigate(typeof(Views.Page4), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
+                    break;
                 case "Page5":
                     PanelContent.Navigate(typeof(Page5), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
                     break;
@@ -44,7 +53,7 @@ namespace MVITO
             }
         }
 
-    
+       
     }
 }
 

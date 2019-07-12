@@ -8,54 +8,107 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
+
     <Grid>
+
+
+        <Grid.Background>
+            <ImageBrush
+                    ImageSource="/Icons/reportes.jpg" Stretch="Uniform" Opacity="0.3"/>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="0,0,42.4,0">
-            <Image Source="../Icons/Reportes.png" Margin="0,100,0,0" MaxWidth="500" MaxHeight="500" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        </Grid>
-        <Grid Grid.ColumnSpan="2" Margin="713,0,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="151*"/>
-                <RowDefinition Height="349*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Width="348" Height="478" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="27,58,0,0" Grid.RowSpan="2">
-                <GridViewHeaderItem Content="Reportes" VerticalAlignment="Top" Margin="0,10"/>
 
-                <TextBlock TextWrapping="Wrap" Margin="10" Text="Vea el total de los Gastos Ingresados Diarios o Mensuales y guardelos en una Tabla de Excel"/>
-                <ComboBox x:ConnectionId='6' Name="r"                               Margin="10" Header="Rango" PlaceholderText="Selecione Fecha de reporte" HorizontalAlignment="Stretch">
-                    <x:String>Diario</x:String>
+
+        <Grid Grid.Column="0">
+
+
+
+            <StackPanel Width="360" HorizontalAlignment="Right" Margin="0,95,61,0" Background="#CCF4F3F3" Height="auto" VerticalAlignment="Top" >
+                <GridViewHeaderItem Content="Planillas" VerticalAlignment="Top" Margin="0,10"/>
+                
+                <TextBlock TextWrapping="Wrap" Margin="10" Text="Calcula automaticamente todos los costos de planilla con un solo click"/>
+                <ComboBox x:ConnectionId='11'  Name="tipopla" Margin="10" Header="Formato" PlaceholderText="Selecione El formato de la planilla" HorizontalAlignment="Stretch"                                            >
                     <x:String>Mensual</x:String>
-                    <x:String>Anual</x:String>
+                    <x:String>Semanal</x:String>
                 </ComboBox>
-                <TextBox x:ConnectionId='7' Name="Compras" Header="Total de Compras" Margin="10" IsEnabled="False"/>
-                <TextBox x:ConnectionId='8' Name="Gastos" Header="Total de Gastos" Margin="10" IsEnabled="False"/>
-                <TextBox x:ConnectionId='9' Name="Perdidas" Header="Total de Compras" Margin="10" IsEnabled="False"/>
-                <Button x:ConnectionId='10' Name="ExcelButton"                    IsEnabled="False" HorizontalAlignment="Stretch" Height="35" Margin="10" Background="ForestGreen" Content="Guardar en Excel"/>
-            </StackPanel>
-            <StackPanel x:ConnectionId='2' Name="Calculo" Margin="375,179,0,0" Grid.RowSpan="2" HorizontalAlignment="Left" Width="329" Height="357" VerticalAlignment="Top"   >
-                <ComboBox x:ConnectionId='3' x:Name="mes" Width="295" Margin="10"  Header="Mes" Visibility="Collapsed"                                        >
-                    <x:String>Enero</x:String>
-                    <x:String>Febrero</x:String>
-                    <x:String>Marzo</x:String>
-                    <x:String>Abril</x:String>
-                    <x:String>Mayo</x:String>
-                    <x:String>Junio</x:String>
-                    <x:String>Julio</x:String>
-                    <x:String>Agosto</x:String>
-                    <x:String>Septiembre</x:String>
-                    <x:String>Octubre</x:String>
-                    <x:String>Noviembre</x:String>
-                    <x:String>Diciembre</x:String>
-                </ComboBox>
-                <DatePicker x:ConnectionId='4' Name="año" Header="Año" Margin="10" DayVisible="False" MonthVisible="False" YearFormat="{}{year.full}" Width="295" Visibility="Collapsed"  />
-                <Button x:ConnectionId='5' x:Name="calcular" Content="Calcular" Margin="10" Width="166" HorizontalAlignment="Center"                        Visibility="Collapsed" Background="#334DC1FD" IsEnabled="False" />
+
+                <StackPanel x:ConnectionId='12' Name="plasem" Height="0">
+
+                    <CalendarDatePicker x:ConnectionId='17'  Name="fchsem" Margin="10" IsDoubleTapEnabled="False" FirstDayOfWeek="Monday" Header="Selecione el Lunes de la semana a calcular"></CalendarDatePicker>
+
+                </StackPanel>
+
+                <StackPanel x:ConnectionId='13' Name="plames" Height="0">
+
+
+                    <DatePicker x:ConnectionId='16' Name="fchplamen" Margin="10" Header="Escoja el mes y año de la planilla a generar" DayVisible="False"/>
+                   
+
+                </StackPanel>
+
+
+                <TextBlock x:ConnectionId='14' Name="probando"></TextBlock>
+                <Button x:ConnectionId='15' Name="genplanilla"  HorizontalAlignment="Stretch" Height="35" Margin="10,25" Background="ForestGreen" Content="Generar Planilla"                           />
             </StackPanel>
 
+
         </Grid>
+
+
+
+
+        <Grid Grid.Column="1">
+
+
+            <ScrollViewer>
+                <StackPanel Width="360" HorizontalAlignment="Left" Margin="61,95,0,0" Background="#CCF4F3F3" Height="auto" VerticalAlignment="Top">
+                    <GridViewHeaderItem Content="Reportes" VerticalAlignment="Top" Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap" Margin="10" Text="Vea el total de los Gastos Ingresados Diarios o Mensuales y guardelos en una Tabla de Excel"/>
+                    <ComboBox x:ConnectionId='2' Name="r"                               Margin="10" Header="Rango" PlaceholderText="Selecione Fecha de reporte" HorizontalAlignment="Stretch">
+                        <x:String>Diario</x:String>
+                        <x:String>Mensual</x:String>
+                        <x:String>Anual</x:String>
+                    </ComboBox>
+                    <StackPanel x:ConnectionId='3' Name="Calculo"  Margin="10" Height="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="360">
+                        <ComboBox x:ConnectionId='8' x:Name="mes" Width="295" Margin="10"  Header="Mes" Visibility="Collapsed"                                        >
+                            <x:String>Enero</x:String>
+                            <x:String>Febrero</x:String>
+                            <x:String>Marzo</x:String>
+                            <x:String>Abril</x:String>
+                            <x:String>Mayo</x:String>
+                            <x:String>Junio</x:String>
+                            <x:String>Julio</x:String>
+                            <x:String>Agosto</x:String>
+                            <x:String>Septiembre</x:String>
+                            <x:String>Octubre</x:String>
+                            <x:String>Noviembre</x:String>
+                            <x:String>Diciembre</x:String>
+                        </ComboBox>
+                        <DatePicker x:ConnectionId='9' Name="año" Header="Año" Margin="10" DayVisible="False" MonthVisible="False" YearFormat="{}{year.full}" Width="295" Visibility="Collapsed"  />
+                        <Button x:ConnectionId='10' x:Name="calcular" Content="Calcular" Margin="10" Width="166" HorizontalAlignment="Center"                        Visibility="Collapsed" Background="#334DC1FD" IsEnabled="False" />
+                    </StackPanel>
+                    <TextBox x:ConnectionId='4' Name="Compras" Header="Total de Compras" Margin="10" IsEnabled="False"/>
+                    <TextBox x:ConnectionId='5' Name="Gastos" Header="Total de Gastos" Margin="10" IsEnabled="False"/>
+                    <TextBox x:ConnectionId='6' Name="Perdidas" Header="Total de Compras" Margin="10" IsEnabled="False"/>
+                    <Button x:ConnectionId='7' Name="ExcelButton"                    IsEnabled="False" HorizontalAlignment="Stretch" Height="35" Margin="10,25" Background="ForestGreen" Content="Guardar en Excel"/>
+                </StackPanel>
+            </ScrollViewer>
+
+
+
+        </Grid>
+
+
+
+
+
     </Grid>
 </Page>
 

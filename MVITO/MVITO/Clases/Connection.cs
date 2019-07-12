@@ -11,6 +11,8 @@ namespace MVITO.Clases
     class Connection
     { 
         private SqlConnection conexion = new SqlConnection((App.Current as App).ConnectionString);
+
+        
         public Connection() { }
 
         // Funcion Primitiva
@@ -33,5 +35,33 @@ namespace MVITO.Clases
             if (filasafectadas > 0) return true;
             else return false;
         }
+
+        public bool comprobar(string query)
+        {
+            conexion.Open();
+            SqlDataAdapter  Sda = new SqlDataAdapter(query, conexion);
+            DataTable table = new DataTable();
+
+            Sda.Fill(table);
+            conexion.Close();
+
+
+            if (table.Rows.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+            
+
+           
+
+
+        }   
+
+
     }
 }

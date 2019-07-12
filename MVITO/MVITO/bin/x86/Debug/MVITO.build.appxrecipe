@@ -112,6 +112,12 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\reloj.jpg">
+      <PackagePath>Icons\reloj.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\reportes.jpg">
+      <PackagePath>Icons\reportes.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
@@ -123,15 +129,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page1.xbf">
-      <PackagePath>Views\Page1.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page2.xbf">
-      <PackagePath>Views\Page2.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page3.xbf">
-      <PackagePath>Views\Page3.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page4.xbf">
       <PackagePath>Views\Page4.xbf</PackagePath>
