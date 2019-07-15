@@ -10,7 +10,7 @@
 
     <Page.Resources>
 
-        <Flyout x:ConnectionId='2' x:Name="FlyoutMss" Placement="Top">
+        <Flyout x:ConnectionId='2' x:Name="FlyoutMss" Placement="Top" >
 
             <Flyout.FlyoutPresenterStyle>
                 <Style TargetType="FlyoutPresenter">
@@ -19,9 +19,9 @@
             </Flyout.FlyoutPresenterStyle>
 
 
-            <StackPanel >
+            <StackPanel MaxWidth="350" MaxHeight="200" >
                 <Image></Image>
-                <TextBlock x:ConnectionId='3' Name="mensaje"></TextBlock>
+                <TextBlock x:ConnectionId='3' TextWrapping="Wrap"  Name="mensaje"></TextBlock>
 
             </StackPanel>
         </Flyout>
@@ -53,18 +53,19 @@
                             <StackPanel Width="360" Height="570" HorizontalAlignment="Center" Margin="0,41,0,0" Background="#CCF4F3F3" >
 
                                 <GridViewHeaderItem Content="Registro de Empleados" VerticalAlignment="Top" Margin="0,10"/>
+                                <TextBlock x:ConnectionId='35' Name="test"></TextBlock>
                                 <TextBlock TextWrapping="Wrap" Margin="10" Text="Registro a cada uno de sus empleados para llevar un control total de su planilla. Esto incluye deducciones a empleados, pagos de horas extras e ingresos y egresos extras"/>
                                 <TextBlock TextWrapping="Wrap" Margin="10" Text="Datos Generales" FontSize="15" HorizontalAlignment="Center"/>
 
-                                <TextBox x:ConnectionId='35' Name="IDempleado" Margin="10,0" Header="Identificacion" PlaceholderText="Ingrese numero de identidad del empleado"                              MaxLength="15"                                 />
-                                <TextBox x:ConnectionId='36' Name="nomempleado" Margin="10,0" Header="Nombre Completo" PlaceholderText="Ingrese el nombre del empleado" MaxLength="100"/>
-                                <DatePicker x:ConnectionId='37' Name="nacempleado" Header="Fecha de nacimiento" Margin="10,0" Width="337"></DatePicker>
-                                <ComboBox x:ConnectionId='38' Name="genempleado" Margin="10,0" Header="Genero" Width="337" PlaceholderText="Escoja el genero del empleado">
+                                <TextBox x:ConnectionId='36' Name="IDempleado" Margin="10,0" Header="Identificacion" PlaceholderText="Ingrese numero de identidad del empleado"                              MaxLength="15"                                 />
+                                <TextBox x:ConnectionId='37' Name="nomempleado" Margin="10,0" Header="Nombre Completo" PlaceholderText="Ingrese el nombre del empleado" MaxLength="100"/>
+                                <DatePicker x:ConnectionId='38' Name="nacempleado" Header="Fecha de nacimiento" Margin="10,0" Width="337"></DatePicker>
+                                <ComboBox x:ConnectionId='39' Name="genempleado" Margin="10,0" Header="Genero" Width="337" PlaceholderText="Escoja el genero del empleado">
                                     <x:String>Masculino</x:String>
                                     <x:String>Femenino</x:String>
                                 </ComboBox>
-                                <DatePicker x:ConnectionId='39' Name="iniempleado" Header="Fecha de Inicio" Margin="10,0" Width="337"></DatePicker>
-                                <TextBox x:ConnectionId='40' Name="domempleado" Margin="10,0" Header="Domicilio del empleado" PlaceholderText="Ingrese el domicilio del empleado" MaxLength="100"/>
+                                <DatePicker x:ConnectionId='40' Name="iniempleado" Header="Fecha de Inicio" Margin="10,0" Width="337"></DatePicker>
+                                <TextBox x:ConnectionId='41' Name="domempleado" Margin="10,0" Header="Domicilio del empleado" PlaceholderText="Ingrese el domicilio del empleado" MaxLength="100"/>
 
 
                             </StackPanel>
@@ -120,7 +121,7 @@
                 <Grid>
                     <Grid.Background>
                         <ImageBrush
-                    ImageSource="/Icons/reloj.jpg" Stretch="Uniform" Opacity="0.3">
+                    ImageSource="/Icons/reloj.png" Stretch="Uniform" Opacity="0.3">
                             <ImageBrush.Transform>
                                 <CompositeTransform />
                             </ImageBrush.Transform>

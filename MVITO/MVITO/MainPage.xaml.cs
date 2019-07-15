@@ -37,23 +37,29 @@ namespace MVITO
            
         }
 
-        private void PageChange(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        private void ChangePanel(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            switch (((NavigationViewItem)args.SelectedItem).Tag.ToString())
+            if (args.IsSettingsSelected == true)
             {
-                case "Page4":
-                    PanelContent.Navigate(typeof(Views.Page4), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
-                    break;
-                case "Page5":
-                    PanelContent.Navigate(typeof(Page5), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
-                    break;
-                case "Page6":
-                    PanelContent.Navigate(typeof(Page6), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
-                    break;
+                //PanelContent.Navigate(typeof(Settings));
+            }
+
+            else
+            {
+                switch (((NavigationViewItem)args.SelectedItem).Tag.ToString())
+                {
+                    case "EMP":
+                        PanelContent.Navigate(typeof(Page4), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
+                        break;
+                    case "ADM":
+                        PanelContent.Navigate(typeof(Page6), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
+                        break;
+                    case "RP":
+                        PanelContent.Navigate(typeof(Page5), ((NavigationViewItem)args.SelectedItem).Tag.ToString());
+                        break;
+                }
             }
         }
-
-       
     }
 }
 

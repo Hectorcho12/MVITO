@@ -1,4 +1,3 @@
-WinMetadata\Windows.winmd
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
@@ -20,7 +19,9 @@ Icons\monedas.png
 Icons\Pagos.png
 Icons\Perdidas.png
 Icons\reloj.jpg
+Icons\reloj.png
 Icons\Repartidor.png
 Icons\reportes.jpg
 Icons\Reportes.png
 Properties\Default.rd.xml
+WinMetadata\Windows.winmd

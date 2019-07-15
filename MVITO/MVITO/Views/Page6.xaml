@@ -22,7 +22,7 @@
                         <Image Source="../Icons/Pagos.png" MaxWidth="500" VerticalAlignment="Top" Margin="0,105,31,0" HorizontalAlignment="Right"/>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <StackPanel Height="auto" VerticalAlignment="Top" Margin="57,38,0,0" HorizontalAlignment="Left" Width="360">
+                        <StackPanel Height="auto"  Background="#CCF4F3F3" VerticalAlignment="Top" Margin="57,38,0,0" HorizontalAlignment="Left" Width="360">
                             <TextBlock Name="aviso" Foreground="#FF3734B4" Margin="10" FontSize="18" FontStyle="Normal" HorizontalAlignment="Center"></TextBlock>
                             <GridViewHeaderItem Content="Registro de Pagos y Gastos" VerticalAlignment="Top" Margin="0,10"/>
                             <TextBlock TextWrapping="Wrap" Margin="10" Text="Ingrese Gastos de Operacion como ser el pago de servicios publicos o cualquier otro gasto que haya tenido su empresa " FocusVisualPrimaryBrush="Black"/>
@@ -132,51 +132,7 @@
 
             </PivotItem>
 
-            <PivotItem Header="Repartidores">
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-                        <Image Source="../Icons/Repartidor.png" Margin="30" MaxWidth="500" MaxHeight="500" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <StackPanel Width="360" Height="auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,36,0,0">
-                            <GridViewHeaderItem Content="Registro de Tiempos" VerticalAlignment="Top" Margin="0,10"/>
-                            <TextBlock TextWrapping="Wrap" Margin="10" Text="Tome el registro de salida y regreso de cada repartidor para estimar el tiempo de recorrido"/>
-                            <ComboBox x:Name="Movimiento" Margin="10" HorizontalAlignment="Stretch" Header="Movimiento" PlaceholderText="Seleccione si el Repartidor Sale o Regresa" SelectionChanged="MovimientoSelection">
-                                <x:String>Repartidor Saliendo</x:String>
-                                <x:String>Repartidor Regresa</x:String>
-                            </ComboBox>
-                            <ComboBox x:Name="Repartidor" SelectionChanged="RepartidorSelection" Margin="10" HorizontalAlignment="Stretch" Header="Repartidor" PlaceholderText="Seleccione Repartidor">
-                                <x:String>Repartidor 1</x:String>
-                                <x:String>Repartidor 2</x:String>
-                                <x:String>Repartidor 3</x:String>
-                                <x:String>Repartidor 4</x:String>
-                            </ComboBox>
-                            <ComboBox x:Name="Cantidad" SelectionChanged="CantidadSelection" Margin="10" HorizontalAlignment="Stretch" Header="Tamaño de Envio" PlaceholderText="Seleccione la cantidad de pizzas que lleva">
-                                <x:String>1 Pizza</x:String>
-                                <x:String>2 Pizza</x:String>
-                                <x:String>3 Pizza</x:String>
-                                <x:String>4 Pizza</x:String>
-                                <x:String>5 Pizza</x:String>
-                                <x:String>6 Pizza</x:String>
-                                <x:String>7 Pizza</x:String>
-                                <x:String>8 Pizza</x:String>
-                                <x:String>9 Pizza</x:String>
-                                <x:String>10 Pizza</x:String>
-                            </ComboBox>
-                            <TextBox Name="Totalrepartidores" Margin="10" Header="Dinero" PlaceholderText="Ingrese el total del pedido que lleva"/>
-                            <Button Content="Guardar" Background="CornflowerBlue" Margin="10" Height="35" HorizontalAlignment="Stretch" Click="AgregarRepartidor"/>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-
-
-            </PivotItem>
+           
 
             
 

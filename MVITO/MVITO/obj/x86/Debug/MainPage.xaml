@@ -5,19 +5,49 @@
     xmlns:local="using:MVITO"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <NavigationView x:ConnectionId='2' x:Name="MainMenu" IsSettingsVisible="False"                               PaneDisplayMode="Top" IsBackButtonVisible="Collapsed">
+    <Grid >
+        <NavigationView x:ConnectionId='2' OpenPaneLength="250"                               >
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Bullets" Content="Empleados" Tag="Page4"/>
-                <NavigationViewItem Icon="Document" Content="Reportes" Tag="Page5"/>
-                <NavigationViewItem Icon="Document" Content="Compras y gastos" Tag="Page6"/>
+                <NavigationViewItem Icon="Tag" Content="Crear Factura" Tag="Page1" />
+                <NavigationViewItem Icon="Contact" Content="Agenda" Tag="Page2" />
+                <!--<NavigationViewItem Name="adm1" Icon="Contact2" Content="Usuarios" Tag="Page5" />-->
+                <NavigationViewItem x:ConnectionId='3' Name="adm2" Icon="Edit" Content="Parametros de Factura" Tag="Page3" />
+                <NavigationViewItem x:ConnectionId='4' Name="adm3" Icon="List" Content="Catalogo de Prodcutos" Tag="Page4" />
+                <NavigationViewItem x:ConnectionId='5' Name="adm5" Content="Empleados" Tag="EMP" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE779;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:ConnectionId='6' Name="adm7" Content="Administracion" Tag="ADM" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77F;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:ConnectionId='7' Name="adm4" Content="Reportes" Tag="RP" >
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE9F9;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
-            <Frame x:ConnectionId='3' x:Name="PanelContent"/>
-        </NavigationView>
+            <NavigationView.PaneFooter>
+                <StackPanel Orientation="Horizontal" Margin="0,15">
+                    <PersonPicture Height="20" Margin="10,0"/>
+                    <TextBlock x:ConnectionId='8' Name="User" VerticalAlignment="Bottom" Margin="5,0" Text="ADMINISTRADOR"/>
+                </StackPanel>
+            </NavigationView.PaneFooter>
 
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <Frame x:ConnectionId='9' x:Name="PanelContent" VerticalAlignment="Stretch" Height="auto" Background="#40FFFFFF">                    
+                    <Grid>
+                        <Image x:ConnectionId='10' Name="backgroundimg" Opacity="1" Source="/Images/Background.png" Stretch="Fill" MaxHeight="700" MaxWidth="750" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    </Grid>
+                </Frame>
+            </ScrollViewer>
+        </NavigationView>
     </Grid>
 </Page>
 

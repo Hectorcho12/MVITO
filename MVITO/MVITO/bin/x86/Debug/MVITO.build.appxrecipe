@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>48d96df6-0644-45a0-b6d3-67577500dac3</PackageIdentityName>
     <PackageIdentityPublisher>CN=hecto</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\hecto\Documents\Projects\MVITO\MVITO\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\MVITO\MVITO\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\MVITO\MVITO\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\MVITO\MVITO\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MVITO.exe">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\MVITO.exe">
       <PackagePath>entrypoint\MVITO.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hecto\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
@@ -58,94 +58,97 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Compras.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Compras.png">
       <PackagePath>Icons\Compras.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\empleados.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\empleados.png">
       <PackagePath>Icons\empleados.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\FondoDinero.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\FondoDinero.png">
       <PackagePath>Icons\FondoDinero.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\losts.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\losts.png">
       <PackagePath>Icons\losts.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\monedas.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\monedas.png">
       <PackagePath>Icons\monedas.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Pagos.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Pagos.png">
       <PackagePath>Icons\Pagos.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Perdidas.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Perdidas.png">
       <PackagePath>Icons\Perdidas.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Repartidor.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\reloj.png">
+      <PackagePath>Icons\reloj.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Repartidor.png">
       <PackagePath>Icons\Repartidor.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Reportes.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Reportes.png">
       <PackagePath>Icons\Reportes.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\reloj.jpg">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\reloj.jpg">
       <PackagePath>Icons\reloj.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\reportes.jpg">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\reportes.jpg">
       <PackagePath>Icons\reportes.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MVITO.xr.xml">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\MVITO.xr.xml">
       <PackagePath>MVITO.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page4.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Views\Page4.xbf">
       <PackagePath>Views\Page4.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page5.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Views\Page5.xbf">
       <PackagePath>Views\Page5.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page6.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Views\Page6.xbf">
       <PackagePath>Views\Page6.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Core\MVITO.exe">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Core\MVITO.exe">
       <PackagePath>MVITO.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

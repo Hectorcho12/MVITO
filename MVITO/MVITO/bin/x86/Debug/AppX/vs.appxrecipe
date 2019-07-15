@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>48d96df6-0644-45a0-b6d3-67577500dac3</PackageIdentityName>
     <PackageIdentityPublisher>CN=hecto</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\hecto\Documents\Projects\MVITO\MVITO\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\MVITO\MVITO\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\MVITO\MVITO\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>6BC77F82DE260066E91EF00C250978A515016E2960C23F14A8CA886681527DBA</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>48d96df6-0644-45a0-b6d3-67577500dac3_1.0.0.0_x86__k7cectmbedk7g</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>48d96df6-0644-45a0-b6d3-67577500dac3_k7cectmbedk7g!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\MVITO\MVITO\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-07-12T14:20:49.974</Modified>
+      <Modified>2019-07-15T16:23:17.114</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MVITO.exe">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\MVITO.exe">
       <PackagePath>entrypoint\MVITO.exe</PackagePath>
-      <Modified>2019-07-12T14:20:48.839</Modified>
+      <Modified>2019-07-15T16:23:14.028</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hecto\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -78,123 +78,127 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2018-10-23T07:33:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Compras.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Compras.png">
       <PackagePath>Icons\Compras.png</PackagePath>
       <Modified>2019-04-30T04:54:30.092</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\empleados.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\empleados.png">
       <PackagePath>Icons\empleados.png</PackagePath>
-      <Modified>2019-05-31T19:40:42.481</Modified>
+      <Modified>2019-07-13T06:13:22.196</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\FondoDinero.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\FondoDinero.png">
       <PackagePath>Icons\FondoDinero.png</PackagePath>
       <Modified>2019-05-21T05:11:24.772</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\losts.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\losts.png">
       <PackagePath>Icons\losts.png</PackagePath>
       <Modified>2019-05-21T21:50:46.854</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\monedas.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\monedas.png">
       <PackagePath>Icons\monedas.png</PackagePath>
       <Modified>2019-06-01T01:24:34.932</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Pagos.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Pagos.png">
       <PackagePath>Icons\Pagos.png</PackagePath>
       <Modified>2019-04-30T04:54:30.290</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Perdidas.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Perdidas.png">
       <PackagePath>Icons\Perdidas.png</PackagePath>
       <Modified>2019-04-30T04:54:30.294</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Repartidor.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\reloj.png">
+      <PackagePath>Icons\reloj.png</PackagePath>
+      <Modified>2019-07-13T06:17:34.555</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Repartidor.png">
       <PackagePath>Icons\Repartidor.png</PackagePath>
       <Modified>2019-04-30T04:54:30.297</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\Reportes.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\Reportes.png">
       <PackagePath>Icons\Reportes.png</PackagePath>
-      <Modified>2019-04-30T04:54:30.301</Modified>
+      <Modified>2019-07-14T05:23:31.598</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-04-24T04:03:45.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\reloj.jpg">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\reloj.jpg">
       <PackagePath>Icons\reloj.jpg</PackagePath>
       <Modified>2019-06-22T04:07:05.458</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Icons\reportes.jpg">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Icons\reportes.jpg">
       <PackagePath>Icons\reportes.jpg</PackagePath>
       <Modified>2019-06-22T04:30:21.555</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2019-04-30T04:46:05.536</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MVITO.xr.xml">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\MVITO.xr.xml">
       <PackagePath>MVITO.xr.xml</PackagePath>
-      <Modified>2019-07-08T17:19:49.847</Modified>
+      <Modified>2019-07-13T06:08:06.754</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-07-12T14:20:48.462</Modified>
+      <Modified>2019-07-15T16:23:13.453</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-07-12T14:20:48.462</Modified>
+      <Modified>2019-07-15T16:23:13.453</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page4.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Views\Page4.xbf">
       <PackagePath>Views\Page4.xbf</PackagePath>
-      <Modified>2019-07-12T14:20:48.453</Modified>
+      <Modified>2019-07-15T16:23:13.430</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page5.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Views\Page5.xbf">
       <PackagePath>Views\Page5.xbf</PackagePath>
-      <Modified>2019-07-12T14:20:48.457</Modified>
+      <Modified>2019-07-15T16:23:13.438</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Views\Page6.xbf">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Views\Page6.xbf">
       <PackagePath>Views\Page6.xbf</PackagePath>
-      <Modified>2019-07-12T14:20:48.462</Modified>
+      <Modified>2019-07-15T16:23:13.452</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-10-23T06:44:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-07-02T22:13:15.065</Modified>
+      <Modified>2019-07-13T06:23:50.205</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hecto\Documents\Projects\MVITO\MVITO\bin\x86\Debug\Core\MVITO.exe">
+    <AppxPackagedFile Include="C:\MVITO\MVITO\bin\x86\Debug\Core\MVITO.exe">
       <PackagePath>MVITO.exe</PackagePath>
-      <Modified>2019-07-12T14:20:49.961</Modified>
+      <Modified>2019-07-15T16:23:17.062</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

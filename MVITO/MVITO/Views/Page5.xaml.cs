@@ -519,17 +519,17 @@ namespace Monitoreo.Views
                 int mesSiguiente = mesActual + 1;
 
 
-                fchinicio = Convert.ToString("01/" + mesActual + "/" + year);
+                fchinicio = Convert.ToString(year + "-" +  mesActual + "-01");
 
                 if(mesActual == 12)
                 {
-                    fchfinal = Convert.ToString("31/" + mesActual + "/" + year);
+                    fchfinal = Convert.ToString(year + "-" + mesActual + "-31");
 
                 }
                 else
                 {
 
-                    DateTime mes = Convert.ToDateTime("01/" + mesSiguiente + "/" + year).AddDays(-1);
+                    DateTime mes = Convert.ToDateTime( year + "-" + mesSiguiente + "-01").AddDays(-1);
                     fchfinal = Convert.ToString(mes).Substring(0, 10);
 
                 }
@@ -590,16 +590,17 @@ namespace Monitoreo.Views
                         int mesSiguiente = mesActual + 1;
 
 
-                        fchinicio = Convert.ToString("01/" + mesActual + "/" + year);
-                        if (mesActual == 12)
+                        fchinicio = Convert.ToString(year + "-" +  mesActual + "-01");
+
+                        if(mesActual == 12)
                         {
-                            fchfinal = Convert.ToString("31/" + mesActual + "/" + year);
+                            fchfinal = Convert.ToString(year + "-" + mesActual + "-31");
 
                         }
                         else
                         {
 
-                            DateTime mes = Convert.ToDateTime("01/" + mesSiguiente + "/" + year).AddDays(-1);
+                            DateTime mes = Convert.ToDateTime( year + "-" + mesSiguiente + "-01").AddDays(-1);
                             fchfinal = Convert.ToString(mes).Substring(0, 10);
 
                         }

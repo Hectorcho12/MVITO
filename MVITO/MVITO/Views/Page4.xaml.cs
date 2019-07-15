@@ -56,9 +56,12 @@ namespace MVITO.Views
 
         private async void IngresoEmpleado_Click(object sender, RoutedEventArgs e)
         {
+           
 
+            if ((IDempleado.Text != "" && nomempleado.Text != "" && nacempleado.SelectedDate != null && genempleado.SelectedItem != null && iniempleado.SelectedDate != null && domempleado.Text != "" && Salarioempleado.Text != "" && cbxentrada.SelectedTime != null && Cbxsalida.SelectedTime != null && puestoempleado.Text != "" && comentarioempleado.Text != "") && (durampleado.SelectedDate != null || Indefinido.IsChecked != false))
+            {
 
-            string desde = cbxentrada.SelectedTime.ToString().Substring(0, 2);
+                string desde = cbxentrada.SelectedTime.ToString().Substring(0, 2);
             string hasta = Cbxsalida.SelectedTime.ToString().Substring(0, 2);
 
 
@@ -77,11 +80,13 @@ namespace MVITO.Views
                 gen = "F";
             }
 
-            if (Indefinido.IsChecked == true)
-            {
-                con.EXECUTE(Convert.ToString("Exec InModEmpleados '" + IDempleado.Text + "', '" + nomempleado.Text + "', '" + nacempleado.SelectedDate + "', '" + gen + "', '" + iniempleado.SelectedDate
-               + "', '" + Convert.ToBoolean(1) + "', '" + domempleado.Text + "' , '" + Salarioempleado.Text + "', '" + cbxentrada.SelectedTime + "', '" + Cbxsalida.SelectedTime + "', '" + puestoempleado.Text + "','"
-               + comentarioempleado.Text + "',NULL , '" + totalhoras + "'"));
+                if (Indefinido.IsChecked == true)
+                {
+                    test.Text = Convert.ToString(nacempleado.SelectedDate);
+                    con.EXECUTE(Convert.ToString("Exec InModEmpleados '" + IDempleado.Text + "', '" + nomempleado.Text + "', '" + (nacempleado.Date.Year.ToString() + "-" + nacempleado.Date.Month.ToString() + "-" + nacempleado.Date.Day.ToString())
+                        + "', '" + gen + "', '" + (iniempleado.Date.Year.ToString() + "-" + iniempleado.Date.Month.ToString() + "-" + iniempleado.Date.Day.ToString())
+                        + "', '" + Convert.ToBoolean(1) + "', '" + domempleado.Text + "' , '" + Salarioempleado.Text + "', '" + cbxentrada.SelectedTime + "', '" + Cbxsalida.SelectedTime + "', '" + puestoempleado.Text + "','"
+                        + comentarioempleado.Text + "',NULL , '" + totalhoras + "'"));
 
 
                 string mensaje = "El empleado " + nomempleado.Text + " ha sido ingresado exitosamente";
@@ -115,9 +120,10 @@ namespace MVITO.Views
                 
 
 
-                con.EXECUTE(Convert.ToString("Exec InModEmpleados '" + IDempleado.Text + "', '" + nomempleado.Text + "', '" + nacempleado.SelectedDate + "', '" + gen + "', '" + iniempleado.SelectedDate
-               + "', '" + Convert.ToBoolean(1) + "', '" + domempleado.Text + "' , '" + Salarioempleado.Text + "', '" + cbxentrada.SelectedTime + "', '" + Cbxsalida.SelectedTime + "', '" + puestoempleado.Text + "','"
-               + comentarioempleado.Text + "','" + durampleado.SelectedDate + "' , '" + totalhoras + "'"));
+                con.EXECUTE(Convert.ToString("Exec InModEmpleados '" + IDempleado.Text + "', '" + nomempleado.Text + "', '" + (nacempleado.Date.Year.ToString() + "-" + nacempleado.Date.Month.ToString() + "-" + nacempleado.Date.Day.ToString()) 
+                    + "', '" + gen + "', '" + (iniempleado.Date.Year.ToString() + "-" + iniempleado.Date.Month.ToString() + "-" + iniempleado.Date.Day.ToString())
+                    + "', '" + Convert.ToBoolean(1) + "', '" + domempleado.Text + "' , '" + Salarioempleado.Text + "', '" + cbxentrada.SelectedTime + "', '" + Cbxsalida.SelectedTime + "', '" + puestoempleado.Text + "','"
+                    + comentarioempleado.Text + "','" + (durampleado.Date.Year.ToString() + "-" + durampleado.Date.Month.ToString() + "-" + durampleado.Date.Day.ToString()) + "' , '" + totalhoras + "'"));
 
 
                 string mensaje = "El empleado " + nomempleado.Text + " ha sido ingresado exitosamente";
@@ -144,7 +150,11 @@ namespace MVITO.Views
 
             }
 
+            }
+            else
+            {
 
+            }
 
 
         }
@@ -302,7 +312,7 @@ namespace MVITO.Views
 
 
 
-                    con.EXECUTE(Convert.ToString("Exec InHrsX  '" + identidad + "', '" + hxfch.SelectedDate + "', '" + totalhx + "',  '" + tipo + "'"));
+                    con.EXECUTE(Convert.ToString("Exec InHrsX  '" + identidad + "', '" + (hxfch.Date.Year.ToString() + "-" + hxfch.Date.Month.ToString() + "-" + hxfch.Date.Day.ToString()) + "', '" + totalhx + "',  '" + tipo + "'"));
 
 
                     string mensaje = "Ingreso correcto de las horas extras";
@@ -381,7 +391,7 @@ namespace MVITO.Views
             if (listaempleados.SelectedItem != null && ixdescripcion.Text != "" && ixtotal.Text != "" && ixfch.SelectedDate != null)
             {
 
-                con.EXECUTE(Convert.ToString("Exec InOtrosInEg  '" + identidad + "', '" + ixdescripcion.Text + "', '" + 1 + "',  '" + ixtotal.Text + "' ,  '" + ixfch.SelectedDate + "'"));
+                con.EXECUTE(Convert.ToString("Exec InOtrosInEg  '" + identidad + "', '" + ixdescripcion.Text + "', '" + 1 + "',  '" + ixtotal.Text + "' ,  '" + (ixfch.Date.Year.ToString() + "-" + ixfch.Date.Month.ToString() + "-" + ixfch.Date.Day.ToString()) + "'"));
 
                 string mensaje = "Registro correcto del ingreso extra";
                 MessageDialog ms = new MessageDialog(mensaje, "Registro Exitoso");
@@ -412,7 +422,7 @@ namespace MVITO.Views
             if (listaempleados.SelectedItem != null && exdescripcion.Text != "" && extotal.Text != "" && exfch.SelectedDate != null)
             {
 
-                con.EXECUTE(Convert.ToString("Exec InOtrosInEg  '" + identidad + "', '" + exdescripcion.Text + "', '" + 0 + "',  '" + extotal.Text + "' ,  '" + exfch.SelectedDate + "'"));
+                con.EXECUTE(Convert.ToString("Exec InOtrosInEg  '" + identidad + "', '" + exdescripcion.Text + "', '" + 0 + "',  '" + extotal.Text + "' ,  '" + (exfch.Date.Year.ToString() + "-" + exfch.Date.Month.ToString() + "-" + exfch.Date.Day.ToString()) + "'"));
 
                 string mensaje = "Registro correcto del egreso extra";
                 MessageDialog ms = new MessageDialog(mensaje, "Registro Exitoso");
@@ -489,10 +499,17 @@ namespace MVITO.Views
            
         private void Salarioempleado_LostFocus(object sender, RoutedEventArgs e)
         {
+            if(Salarioempleado.Text != "")
+            {
 
-            mensaje.Text = "Recuerda que el salario minimo de tus empleados debe ser de 8920.80 \nsegun el rubro de comercios";
+            if(Convert.ToDouble(Salarioempleado.Text) < 8920.80)
+            {
+                mensaje.Text = "Recuerda que el salario minimo de tus empleados debe ser de 8920.80 segun el rubro de comercios";
 
-            FlyoutMss.ShowAt(Salarioempleado);
+                FlyoutMss.ShowAt(Salarioempleado);
+
+            }
+            }
 
         }
 
@@ -792,7 +809,7 @@ namespace MVITO.Views
                         Cbxsalida.Time = hrsalida;
                         puestoempleado.Text = puesto;
                         comentarioempleado.Text = comentario;
-                        if (Convert.ToDateTime(EmpleadoCheck.Tables[0].Rows[0][12]) == null)
+                        if (Convert.ToString(EmpleadoCheck.Tables[0].Rows[0][12]) == "")
                         {
                             Indefinido.IsChecked = true;
                         }
@@ -801,6 +818,7 @@ namespace MVITO.Views
                             duracion = Convert.ToDateTime(EmpleadoCheck.Tables[0].Rows[0][12]);
                             durampleado.SelectedDate = duracion;
                         }
+
 
                     }
                     else
@@ -816,6 +834,8 @@ namespace MVITO.Views
 
 
         }
+
+        
 
 
 

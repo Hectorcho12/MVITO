@@ -160,6 +160,7 @@
     <Content Include="Icons\Pagos.png" />
     <Content Include="Icons\Perdidas.png" />
     <Content Include="Icons\reloj.jpg" />
+    <Content Include="Icons\reloj.png" />
     <Content Include="Icons\Repartidor.png" />
     <Content Include="Icons\reportes.jpg" />
     <Content Include="Icons\Reportes.png" />

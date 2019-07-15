@@ -15,7 +15,7 @@
 
         <Grid.Background>
             <ImageBrush
-                    ImageSource="/Icons/reportes.jpg" Stretch="Uniform" Opacity="0.3"/>
+                    ImageSource="/Icons/reportes.png" Stretch="Uniform" Opacity="0.3"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
